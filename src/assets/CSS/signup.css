@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.background-auth {
+  background: url(/assets/img/auth-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding: 50px 169px 70px 150px;
+}
+
+.text-content span {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.text-content p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.auth-from-wraper {
+  padding: 150px;
+}
+
+.icon-login {
+  background: unset;
+  border: unset;
+  border-radius: unset;
+  border-bottom: 1px solid gray;
+}
+
+.text {
+  color: #6379F4;
+}
+
+.input-login {
+  border: unset;
+  border-bottom: 1px solid gray;
+  border-radius: unset;
+}
+
+.input-login:focus {
+  border-color: #6379F4;
+  box-shadow: unset;
+}
+
+.button-login {
+  background: #6379F4;
+  border: unset;
+  min-height: 57px;
+}
+
+.button-login:hover {
+  background: #7e8cdf;
+}
