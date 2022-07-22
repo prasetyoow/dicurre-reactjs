@@ -140,14 +140,14 @@ function Home() {
     </section>
     
     {/* /* End of Section */}
-    <footer class="footer-container">
-        <div class="footer-content">
+    <footer className="footer-container">
+        <div className="footer-content">
         <h1>Zwallet</h1>
         <h2>Simplify financial needs and saving much time in banking needs with one single app.</h2>
         <hr/>
-          <div class="copyright">
+          <div className="copyright">
             <h4>2020 Zwallet. All right reserved.</h4>
-            <h4 class="flex">+62 5637 8882 9901</h4>
+            <h4 className="flex">+62 5637 8882 9901</h4>
             <h4>contact@zwallet.com</h4>
           </div>
         </div>
