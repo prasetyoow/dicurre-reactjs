@@ -20,18 +20,20 @@ function Home() {
         <h1 className="top-h1">Zwallet</h1>
       </div>
       <div>
-        <Link to="/" ></Link>
+        <Link to="/Login" >
           <button className="login">Login</button>
-        
-        <Link to="/" ></Link>
+        </Link>
+        <Link to="/Signup" >
           <button className="signup">Sign Up</button>
+        </Link>
         </div>
 
       <div className="container-topleft">
         <h1 className="h1-topleft">Awesome App For Saving <span>Time.</span></h1>
         <h3 className="h3-topleft" >We bring you a mobile app for banking problems that oftenly wasting much of your times.</h3>
-        <Link to="/" ></Link>
+        <Link to="/Signup" >
           <button className="try-free">Try it Free</button>
+        </Link>
         </div>
     </header>
     
@@ -140,6 +142,8 @@ function Home() {
     </section>
     
     {/* /* End of Section */}
+
+    {/* Start of Footer */}
     <footer className="footer-container">
         <div className="footer-content">
         <h1>Zwallet</h1>
@@ -152,6 +156,7 @@ function Home() {
           </div>
         </div>
     </footer>
+    {/* End of Footer */}
     </>
   )
 }
