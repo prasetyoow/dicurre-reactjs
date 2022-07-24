@@ -6,7 +6,7 @@ body {
 }
 
 .background-auth {
-  background: url(/assets/img/auth-bg.png);
+  background: url(../img/auth-bg.png);
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
@@ -31,9 +31,9 @@ body {
 }
 
 .icon-login {
-  background: unset;
-  border: unset;
-  border-radius: unset;
+  background: unset !important;
+  border: unset !important;
+  border-radius: unset !important;
   border-bottom: 1px solid gray;
 }
 
@@ -42,14 +42,14 @@ body {
 }
 
 .input-login {
-  border: unset;
-  border-bottom: 1px solid gray;
-  border-radius: unset;
+  border: unset !important;
+  border-bottom: 1px solid gray !important;
+  border-radius: unset !important;
 }
 
 .input-login:focus {
-  border-color: #6379F4;
-  box-shadow: unset;
+  border-bottom: 2px solid #6379F4 !important;
+  box-shadow: unset !important;
 }
 
 .button-login {
@@ -61,3 +61,37 @@ body {
 .button-login:hover {
   background: #7e8cdf;
 }
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.pin-wrap {
+  max-height: 65px;
+}
+
+.pin-num {
+  font-size: 30px; 
+  text-align: center; 
+  width: 40px; 
+  border: unset; 
+  border-bottom: 1px solid gray;
+}
+
+.pin-border {
+  border-radius: 10px;
+  border: 1px solid gray; 
+  padding: 10px 10px;
+}
+
+.pin-border:focus {
+  outline: none;
+}
+
+.success-wrap {
+  height: 70px;
+  width: 70px;
+  background-color: #1EC15F;
+  border-radius: 50%;
+}
+
