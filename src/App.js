@@ -20,6 +20,8 @@ import ChangePIN from "./pages/ChangePIN"
 import ChangeNewPIN from "./pages/ChangeNewPIN"
 import Transfer from "./pages/Transfer"
 import Confirmation from "./pages/Confirmation"
+import StatusSuccess from "./pages/StatusSuccess";
+import StatusFailed from "./pages/StatusFailed";
 
 function App() {
   return (
@@ -46,6 +48,8 @@ function App() {
         <Route path="/ChangeNewPIN" element={<ChangeNewPIN />} />
         <Route path="/Transfer" element={<Transfer />} />
         <Route path="/Confirmation" element={<Confirmation />} />
+        <Route path="/StatusSuccess" element={<StatusSuccess />} />
+        <Route path="/StatusFailed" element={<StatusFailed />} />
       </Routes>
     
   )
