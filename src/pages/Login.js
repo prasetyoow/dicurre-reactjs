@@ -47,11 +47,11 @@ function Login() {
             <Link to="/ForgotPassword" className ="link-dark text-decoration-none">Forgot Password?</Link>
           </div>
 
-          <a className ="text-decoration-none" href="/home.html">
+          <Link to="/Dashboard" className ="text-decoration-none">
             <div className ="d-grid mt-5">
               <button className ="btn btn-primary btn-lg fw-bold button-login">Login</button>
             </div>
-          </a>
+          </Link>
           
 
           <div className ="text-center">
