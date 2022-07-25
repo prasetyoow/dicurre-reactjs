@@ -1,0 +1,261 @@
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  font-weight: bold;
+}
+
+.header-full-wrap {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.head-wrap {
+  padding: 0 20px;
+}
+
+.head-logo {
+  color: #6379F4;
+  cursor: pointer;
+}
+
+.prof-num {
+  font-weight: 400;
+  font-size: 13px;
+  color: rgba(58, 61, 66, 0.9);
+}
+
+.nav-wrap {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+}
+
+.icon-nav {
+  color: rgba(58, 61, 66, 0.8);
+}
+
+.icon-nav:hover {
+  color: #6379F4
+}
+
+.logout {
+  margin-top: 270px;
+}
+
+.balance-wrap {
+  background: #6379F4;
+  border-radius: 20px;
+  padding-right: 500px;
+}
+
+.balance-text {
+  color: #E0E0E0;
+}
+
+.balance-num {
+  color: #FFFFFF;
+}
+
+.icon-balance {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #FFFFFF;
+  border-radius: 10px;
+  width: 162px;
+  height: 57px;
+  padding-top: 15px;
+  padding-left: 30px;
+}
+
+.main-wrap {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+}
+
+.history-wrap {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+}
+
+.contact-wrap { 
+  margin-top: 20px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding-top: 10px;
+}
+
+.profile-wrap {
+  width: 790px;
+  height: 110px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.nominal {
+  margin: 50px;
+  margin-left: 370px;
+}
+
+.balance-avail {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.notes-wrap {
+  width: 343px;
+  height: 37px;
+}
+
+.detail-wrap {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  width: 790px;
+  height: 92px;
+  padding-top: 20px;
+  padding-left: 10px;
+  margin-top: 20px;
+}
+
+.search-cont {
+  background: rgba(58, 61, 66, 0.1);
+  border-radius: 12px;
+  height: 54px;
+}
+
+.transfer-wrap {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+}
+
+.cont-text  {
+  padding-top: 20px;
+  padding-left: 30px;
+}
+
+.success {
+  color: #1EC15F;
+}
+
+.warning {
+  color: #FF5B37;
+}
+
+.footer-wrap {
+  background: #6379F4;
+}
+
+.footer-text {
+  color: #EFEFEF;
+  padding-left: 100px
+}
+
+.footer-cont {
+  color: #EFEFEF;
+  padding-right: 100px;
+}
+
+.button-success {
+  background: #6379F4;
+  border: unset;
+  height: 47px;
+  width: 197px;
+}
+
+.button-download {
+  background: rgba(99, 121, 244, 0.15);
+  box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+  border-radius: 12px;
+  color: #6379F4;
+  border: unset;
+  width: 243px;
+}
+
+.button-wrap {
+  margin-top: 50px;
+}
+
+.button-share {
+  background: rgba(99, 121, 244, 0.15);
+  box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+  border-radius: 12px;
+  color: #6379F4;
+  border: unset;
+  width: 57px;
+}
+
+.topup-wrap {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  width: 790px;
+  height: 80px;
+}
+
+.pencil {
+  width: 12px;
+  height: 12px;
+}
+
+.profile-detail-wrap {
+  background: #E5E8ED;
+  border-radius: 10px;
+  width: 433px;
+  height: 64px;
+  margin-top: 10px;
+  padding-left: 30px;
+  padding-top: 20px;
+  padding-right: 30px;
+}
+
+.icon-change {
+  color: rgba(99, 121, 244, 0.2);;
+  background: unset;
+  border: unset;
+  border-bottom: 1px solid gray;
+}
+
+.icon-change:focus {
+  color: #7e8cdf;
+  border-bottom: #7e8cdf;
+}
+
+.input-change {
+  color: rgba(99, 121, 244, 0.2);
+  border: unset;
+  border-bottom: 1px solid gray;
+}
+
+.input-change:focus {
+  border-color: #6379F4;
+  box-shadow: unset;
+}
+
+.button-change {
+  background: #6379F4;
+  box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+  border-radius: 12px;
+}
+
+.button-change:hover {
+  background: #7e8cdf;
+}
+
+/*  */
+
+.trash-bin {
+  color: #BBBBBE
+}
+
+.cls-btn {
+  border: unset;
+  background-color: unset;
+}

@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Nunito Sans', sans-serif;
-}
-
 header {
   display: flex;
   justify-content: space-between;
@@ -15,7 +9,7 @@ header {
   margin-left: 150px;
   margin-top: 55px;
   font-family: 'Nunito Sans', sans-serif;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 29px;
   color: #6379f4
 }
@@ -30,7 +24,7 @@ header {
   border: 2px solid #FFFFFF;
   border-radius: 12px;
   font-family: 'Nunito Sans', sans-serif;
-  font-weight: 700px;
+  font-weight: bold;
   font-size: 18px;
   cursor: pointer;
 }
@@ -46,7 +40,7 @@ header {
   border: 2px solid #6379F4;
   border-radius: 12px;
   font-family: 'Nunito Sans', sans-serif;
-  font-weight: 700px;
+  font-weight: bold;
   font-size: 18px;
   cursor: pointer;
 }
@@ -81,7 +75,9 @@ header {
   background: #6379F4;
   border: 2px solid #FFFFFF;
   font-family: 'Nunito Sans', sans-serif;
+  font-weight: bold;
   cursor: pointer;
+  margin-top: 30px;
 }
 
 .h1-topleft {
@@ -90,6 +86,7 @@ header {
   font-size: 50px;
   line-height: 93px;
   color: #3A3D42;
+  margin-top: 50px;
 }
 
 .h1-topleft span {
@@ -99,7 +96,7 @@ header {
 .h3-topleft {
   font-family: 'Nunito Sans';
   font-style: normal;
-  font-weight: 400;
+  font-weight: bold;
   font-size: 18px;
   line-height: 31px;
   color: #3A3D42
