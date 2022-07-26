@@ -1,8 +1,48 @@
 import React from "react"
 import Imgdb from "../assets/img/phone-double.png"
-import { Row, Col } from "react-bootstrap"
+import { Form, Row, Col } from "react-bootstrap"
 import {FiUser, FiMail, FiLock} from "react-icons/fi"
 import {Link} from "react-router-dom"
+import {Formik} from "formik"
+import * as Yup from "yup"
+
+const signUpSchema = Yup.object().shape({
+  username: Yup.string().min(6).required('Required'),
+  email: Yup.string().email('Invalid email address format').required('Required'),
+  password: Yup.string().min(8).required('Required')
+})
+
+const AuthValid = ({errors, handleSubmit, handleChange}) => {
+  return (
+    <Form noValidate onSubmit={handleSubmit} className="d-flex flex-column gap-5" >
+
+        <Form.Group  className ="mb-3 input-group" controlId="formatBasicUsername">
+          <span className ="input-group-text icon-login">
+            <FiUser size={24}  />
+          </span>
+        <Form.Control name="username" className="input-login" onChange={handleChange} type="username" placeholder="Enter your username" isInvalid={!!errors.username} />
+        <Form.Control.Feedback type="invalid">Username must be at least 6 characters</Form.Control.Feedback>
+        </Form.Group>
+      
+        <Form.Group  className ="mb-3 input-group" controlId="formatBasicEmail">
+          <span className ="input-group-text icon-login">
+            <FiMail size={24}  />
+          </span>
+        <Form.Control name="email" className="input-login" onChange={handleChange} type="email" placeholder="Enter your e-mail" isInvalid={!!errors.email} />
+        <Form.Control.Feedback type="invalid">Invalid email format</Form.Control.Feedback>
+        </Form.Group>
+      
+        <Form.Group className="mb-3 input-group" controlId="formatBasicPassword">
+          <span className ="input-group-text icon-login">
+            <FiLock size={24}  />
+          </span>
+          <Form.Control name="password" className="input-login" onChange={handleChange} type="password" placeholder="Enter your password" isInvalid={!!errors.password} />
+          <Form.Control.Feedback type="invalid">Password must be at least 8 characters</Form.Control.Feedback>
+        </Form.Group>
+
+    </Form>
+  )
+} 
 
 function Signup () {
   return (
@@ -29,7 +69,7 @@ function Signup () {
           <h3 className="text-start fs-3 fw-bold">Start Accessing Banking Needs <br/> With All Devices and All Platforms <br/> With 30.000+ Users</h3>
           <p className="text-start fw-normal text-muted">Transfering money is eassier than ever, you can access <br/> Zwallet wherever you are Desktop, laptop, mobile phone? <br/> we cover all of that for you!</p>
 
-          <div className="input-group flex-nowrap">
+          {/* <div className="input-group flex-nowrap">
             <span className="input-group-text icon-login">
               <FiUser size={24} />
             </span>
@@ -48,7 +88,11 @@ function Signup () {
               <FiLock size={24} />
             </span>
             <input type="password" className="form-control input-login" placeholder="Enter your password"/>
-          </div>
+          </div> */}
+
+          <Formik initialValues={{username: '', email: '', password: ''}} validationSchema={signUpSchema}>
+            {(props) =><AuthValid {...props} />}
+          </Formik>
 
           <Link to="/CreatePin" className="text-decoration-none">
             <div className="d-grid mt-5">
