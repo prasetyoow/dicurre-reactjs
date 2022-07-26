@@ -2,10 +2,14 @@ import React from "react"
 import Imgdb from "../assets/img/phone-double.png"
 import { Row, Col } from "react-bootstrap"
 import {Link} from "react-router-dom"
-
+import { Helmet } from "react-helmet"
+ 
 function CreatePin() {
   return (
     <>
+    <Helmet>
+      <title>Create PIN</title>
+    </Helmet>
       <Row className="min-vh-100 mw-100" >  
         <Col className="d-flex flex-column gap-5 background-auth" >
           <div className="d-flex flex-column align-items-center">

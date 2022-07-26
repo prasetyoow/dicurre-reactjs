@@ -2,6 +2,7 @@ import React from "react"
 import Imgdb from "../assets/img/phone-double.png"
 import { Row, Col, Form } from "react-bootstrap"
 import {FiMail, FiLock} from "react-icons/fi"
+import { Helmet } from "react-helmet"
 import {Link} from "react-router-dom"
 import {Formik} from "formik"
 import * as Yup from "yup"
@@ -38,6 +39,9 @@ const AuthValid = ({errors, handleSubmit, handleChange}) => {
 function Login() {
   return (
     <>
+    <Helmet>
+      <title>Login</title>
+    </Helmet>
       <Row className="min-vh-100 mw-100" >  
         <Col className="d-flex flex-column gap-5 background-auth" >
           <div className="d-flex flex-column align-items-center">

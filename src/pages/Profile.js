@@ -6,10 +6,14 @@ import Imgle from "../assets/img/Michael Le.png"
 import Sidebars from "../components/Sidebars"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import { Helmet } from "react-helmet"
 
 function Profile() {
   return (
     <>
+    <Helmet>
+      <title>Profile User</title>
+    </Helmet>
     {/* Start of Header */}
     <Header />
     {/* End of Header */}

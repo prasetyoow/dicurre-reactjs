@@ -6,10 +6,14 @@ import Imgsam from "../assets/img/samuel.png"
 import Footer from "../components/Footer"
 import Sidebars from "../components/Sidebars"
 import Header from "../components/Header"
+import { Helmet } from "react-helmet"
 
 function Transfer() {
   return (
     <>
+    <Helmet>
+      <title>Transfer</title>
+    </Helmet>
     {/* Start of Header */}
     <Header />
     {/* End of Header */}

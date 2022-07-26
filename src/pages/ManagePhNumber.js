@@ -5,10 +5,14 @@ import { FiTrash } from "react-icons/fi"
 import Header from "../components/Header"
 import Sidebars from "../components/Sidebars"
 import Footer from "../components/Footer"
+import { Helmet } from "react-helmet"
 
 function ManagePhNumber() {
   return (
     <>
+    <Helmet>
+      <title>Manage Phone Number</title>
+    </Helmet>
       {/* Start of Header */}
       <Header />
       {/* End of Header */}

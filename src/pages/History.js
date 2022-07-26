@@ -7,10 +7,14 @@ import Imgdob from "../assets/img/adobe.png"
 import Header from "../components/Header"
 import Sidebars from "../components/Sidebars"
 import Footer from "../components/Footer"
+import { Helmet } from "react-helmet"
 
 function History() {
   return (
     <>
+    <Helmet>
+      <title>Transaction History</title>
+    </Helmet>
       {/* Start of Header */}
       <Header />
       {/* End of Header */}

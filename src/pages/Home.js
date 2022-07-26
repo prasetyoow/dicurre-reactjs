@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom'
+import { Helmet } from "react-helmet";
 import Imgbg from "../assets/img/Mask Group.png";
 import Imgph from "../assets/img/png-phone.png"
 import Imgsupp from "../assets/img/phone-icon.png"
@@ -15,18 +16,26 @@ function Home() {
   return (
     <>
     {/* Start of Header */}
+    <Helmet>
+      <title>Dicurre</title>
+    </Helmet>
     <header>
       <div>
         <h1 className="top-h1">Zwallet</h1>
       </div>
-      <div>
-        <Link to="/Login" >
-          <button className="login">Login</button>
-        </Link>
-        <Link to="/Signup" >
-          <button className="signup">Sign Up</button>
-        </Link>
+      
+      <div className="button-topright">
+        <div>
+          <Link to="/Login" >
+            <button className="login">Login</button>
+          </Link>
         </div>
+        <div>
+          <Link to="/Signup" >
+            <button className="signup">Sign Up</button>
+          </Link>
+        </div>
+      </div>
 
       <div className="container-topleft">
         <h1 className="h1-topleft">Awesome App For Saving <span>Time.</span></h1>

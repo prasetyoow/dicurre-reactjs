@@ -5,6 +5,7 @@ import {FiUser, FiMail, FiLock} from "react-icons/fi"
 import {Link} from "react-router-dom"
 import {Formik} from "formik"
 import * as Yup from "yup"
+import { Helmet } from "react-helmet"
 
 const signUpSchema = Yup.object().shape({
   username: Yup.string().min(6).required('Required'),
@@ -47,6 +48,9 @@ const AuthValid = ({errors, handleSubmit, handleChange}) => {
 function Signup () {
   return (
     <>
+    <Helmet>
+      <title>Sign Up</title>
+    </Helmet>
       <Row className="min-vh-100 mw-100" >  
         <Col className="d-flex flex-column gap-5 background-auth" >
           <div className="d-flex flex-column align-items-center">

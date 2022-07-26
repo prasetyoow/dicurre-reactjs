@@ -6,10 +6,14 @@ import Imgsam from "../assets/img/samuel.png"
 import Footer from "../components/Footer"
 import Sidebars from "../components/Sidebars"
 import Header from "../components/Header"
+import { Helmet } from "react-helmet"
 
 function StatusFailed() {
   return (
     <>
+    <Helmet>
+      <title>Status Transfer Failed</title>
+    </Helmet>
     {/* Start of Header */}
     <Header />
     {/* End of Header */}

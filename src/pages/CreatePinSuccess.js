@@ -3,10 +3,14 @@ import Imgdb from "../assets/img/phone-double.png"
 import { Row, Col } from "react-bootstrap"
 import {Link} from "react-router-dom"
 import {FiCheck} from 'react-icons/fi'
+import { Helmet } from "react-helmet"
 
 function CreatePinSucess() {
   return (
     <>
+    <Helmet>
+      <title>Create PIN Success</title>
+    </Helmet>
       <Row className="min-vh-100 mw-100" >  
         <Col className="d-flex flex-column gap-5 background-auth" >
           <div className="d-flex flex-column align-items-center">

@@ -5,10 +5,14 @@ import Imgrob from "../assets/img/robert.png"
 import Header from "../components/Header"
 import Sidebars from "../components/Sidebars"
 import Footer from "../components/Footer"
+import { Helmet } from "react-helmet"
 
 function PersonalInfo() {
   return ( 
     <>
+    <Helmet>
+      <title>Personal Information</title>
+    </Helmet>
     {/* Start of Header */}
     <Header />
     {/* End of Header */}

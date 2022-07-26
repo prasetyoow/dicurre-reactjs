@@ -1,6 +1,7 @@
 import React from "react"
 import { Col } from "react-bootstrap"
 import {Link} from "react-router-dom"
+import { Helmet } from "react-helmet"
 import Header from "../components/Header"
 import Sidebars from "../components/Sidebars"
 import Footer from "../components/Footer"
@@ -8,6 +9,9 @@ import Footer from "../components/Footer"
 function AddPhNumber() {
   return (
     <>
+    <Helmet>
+      <title>Add Phone Number</title>
+    </Helmet>
     {/* Start of Header */}
     <Header />
     {/* End of Header */}

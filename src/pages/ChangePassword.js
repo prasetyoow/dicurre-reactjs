@@ -2,6 +2,7 @@ import React from "react"
 import { Col } from "react-bootstrap"
 import {Link} from "react-router-dom"
 import {FiLock} from "react-icons/fi"
+import { Helmet } from "react-helmet"
 import Header from "../components/Header"
 import Sidebars from "../components/Sidebars"
 import Footer from "../components/Footer"
@@ -9,6 +10,9 @@ import Footer from "../components/Footer"
 function ChangePassword() {
   return (
     <>
+    <Helmet>
+      <title>Change Password</title>
+    </Helmet>
     {/* Start of Header */}
     <Header />
     {/* End of Header */}
