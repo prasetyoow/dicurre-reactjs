@@ -61,7 +61,7 @@ function ConfirmPIN() {
           </Button>
           </Link>
           <Link to="/StatusSuccess" >
-          <Button variant="success" onClick={handleClose}>
+          <Button variant="success" className="fw-bold button-login" onClick={handleClose}>
             Confirm
           </Button>
           </Link>
