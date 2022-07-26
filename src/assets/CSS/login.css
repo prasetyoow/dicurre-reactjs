@@ -34,7 +34,7 @@ body {
   background: unset !important;
   border: unset !important;
   border-radius: unset !important;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid gray !important;
 }
 
 .text {
@@ -92,6 +92,13 @@ input[type=number] {
   height: 70px;
   width: 70px;
   background-color: #1EC15F;
+  border-radius: 50%;
+}
+
+.danger-wrap {
+  height: 70px;
+  width: 70px;
+  background-color: #FF5B37;
   border-radius: 50%;
 }
 
