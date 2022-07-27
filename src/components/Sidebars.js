@@ -1,9 +1,18 @@
 import React from 'react';
 import { Col } from "react-bootstrap"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {FiGrid, FiArrowUp, FiPlus, FiUser, FiLogOut} from "react-icons/fi"
 
+
 function Sidebars() {
+
+  const navigate = useNavigate();
+
+  const onLogout = () => {
+    localStorage.removeItem("auth");
+    navigate("/");
+  }
+
   return (
     <>
     <Col className="col-3 d-flex flex-column nav-wrap p-5 m-3">
@@ -37,7 +46,7 @@ function Sidebars() {
                   </Link>
 
                   <Link to="/Login" className="text-decoration-none text-muted">
-                    <div className="d-flex flex-row gap-3 logout icon-nav">
+                    <div className="btn d-flex flex-row gap-3 logout icon-nav" onClick={onLogout}>
                       <FiLogOut size={24} />
                       <span>Logout</span>
                     </div>
