@@ -1,15 +1,15 @@
 import React from "react"
 import Imgdb from "../assets/img/phone-double.png"
-import { Row, Col, Form } from "react-bootstrap"
+import { Row, Col, Form, Alert} from "react-bootstrap"
 import {FiMail, FiLock} from "react-icons/fi"
 import { Helmet } from "react-helmet"
-import {Link} from "react-router-dom"
+import {Link, useNavigate, useLocation} from "react-router-dom"
 import {Formik} from "formik"
 import * as Yup from "yup"
 
 const loginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email address format').required('Required'),
-  password: Yup.string().min(4).required('Required')
+  password: Yup.string().min(8).required('Required')
 })
 
 const AuthValid = ({errors, handleSubmit, handleChange}) => {
@@ -32,16 +32,43 @@ const AuthValid = ({errors, handleSubmit, handleChange}) => {
           <Form.Control.Feedback type="invalid">Invalid password</Form.Control.Feedback>
         </Form.Group>
 
+        <div className ="text-end">
+            <Link to="/ForgotPassword" className ="link-dark text-decoration-none">Forgot Password?</Link>
+        </div> 
+
+        <div className ="d-grid mt-5">
+              <button className="btn btn-primary btn-lg fw-bold button-login">Login</button>
+        </div>
+
+        <div className ="text-center">
+            Don't have an account? Let's <Link to="/Signup" className ="fw-bold text-decoration-none text">Sign up</Link>
+        </div>
+
     </Form>
   )
 } 
 
 function Login() {
+
+  const location = useLocation()
+  const navigate = useNavigate()
+  const LoginReq = (user) => {
+    if (user.email === '' && user.password === '') {
+      window.alert('Please fill the form correctly')
+    } else {
+      localStorage.setItem("auth", "randomToken");
+      navigate('/Dashboard')
+    }
+  }
+
   return (
     <>
     <Helmet>
       <title>Login</title>
     </Helmet>
+    {location.state?.errorMsg && (
+        <Alert className="m-0 sticky-top" variant="danger">{location.state.errorMsg}</Alert>
+    )}
       <Row className="min-vh-100 mw-100" >  
         <Col className="d-flex flex-column gap-5 background-auth" >
           <div className="d-flex flex-column align-items-center">
@@ -78,24 +105,24 @@ function Login() {
             <input type="password" className ="form-control input-login" placeholder="Enter your password" />
           </div> */}
 
-          <Formik initialValues={{email: '', password: ''}} validationSchema={loginSchema}>
+          <Formik initialValues={{email: '', password: ''}} validationSchema={loginSchema} onSubmit={LoginReq}>
             {(props) =><AuthValid {...props} />}
           </Formik>
           
-          <div className ="text-end">
+          {/* <div className ="text-end">
             <Link to="/ForgotPassword" className ="link-dark text-decoration-none">Forgot Password?</Link>
-          </div> 
+          </div>  */}
 
-          <Link to="/Dashboard" className ="text-decoration-none">
+          {/* <Link to="/Dashboard" className ="text-decoration-none"> 
             <div className ="d-grid mt-5">
               <button className ="btn btn-primary btn-lg fw-bold button-login">Login</button>
             </div>
-          </Link>
+          </Link> */}
           
 
-          <div className ="text-center">
+          {/* <div className ="text-center">
             Don't have an account? Let's <Link to="/Signup" className ="fw-bold text-decoration-none text">Sign up</Link>
-          </div>
+          </div> */}
 
         </Col>
       </Row>

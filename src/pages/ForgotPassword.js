@@ -1,12 +1,49 @@
 import React from "react"
 import Imgdb from "../assets/img/phone-double.png"
-import { Row, Col } from "react-bootstrap"
+import { Row, Col, Form } from "react-bootstrap"
 import {FiMail} from "react-icons/fi"
-import {Link} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import { Helmet } from "react-helmet"
+import { Formik } from "formik"
+import * as Yup from "yup"
+
+const forgotPassSchema = Yup.object().shape({
+  email: Yup.string().email('Invalid email address format').required('Required')
+})
+
+const AuthValid = ({errors, handleSubmit, handleChange}) => {
+  return (
+    <Form noValidate onSubmit={handleSubmit} className="d-flex flex-column gap-5" >
+      
+        <Form.Group  className ="mb-3 input-group" controlId="formatBasicEmail">
+          <span className ="input-group-text icon-login">
+            <FiMail size={24}  />
+          </span>
+        <Form.Control name="email" className="input-login" onChange={handleChange} type="email" placeholder="Enter your e-mail" isInvalid={!!errors.email} />
+        <Form.Control.Feedback type="invalid">Invalid email format</Form.Control.Feedback>
+        </Form.Group>
+
+        <div className ="d-grid mt-5">
+              <button className ="btn btn-primary btn-lg fw-bold button-login">Confirm</button>
+        </div>
+
+    </Form>
+  )
+} 
 
 function ForgotPassword() {
+  
+  const navigate = useNavigate()
+    const reqNewPass = (user) => {
+    if (user.email === '') {
+      window.alert('Please fill the form correctly')
+    } else {
+      navigate('/ResetPassword')
+    }
+  }
+
   return (
+
     <>
     <Helmet>
       <title>Forgot Password</title>
@@ -33,7 +70,11 @@ function ForgotPassword() {
           <h3 className="text-start fs-3 fw-bold">Did You Forgot Your Password? <br/> Don't Worry, You Can Reset Your <br/> Password In a Minutes.</h3>
           <p className="text-start fw-normal text-muted">To reset your password, you must type your e-mail and we <br/> will send a link to your email and you will be directed to the <br/> reset password screens.</p>
 
-          <div className="input-group flex-nowrap">
+        <Formik initialValues={{email: ''}} validationSchema={forgotPassSchema} onSubmit={reqNewPass}>
+            {(props) =><AuthValid {...props} />}
+        </Formik>
+
+          {/* <div className="input-group flex-nowrap">
             <span className="input-group-text icon-login">
               <FiMail size={24}  />
             </span>
@@ -44,7 +85,7 @@ function ForgotPassword() {
             <div className="d-grid mt-5">
               <button className="btn btn-primary btn-lg fw-bold button-login">Confirm</button>
             </div>
-          </Link>
+          </Link> */}
         </Col>
       </Row>
     </>

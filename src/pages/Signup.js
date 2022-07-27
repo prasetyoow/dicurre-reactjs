@@ -2,7 +2,7 @@ import React from "react"
 import Imgdb from "../assets/img/phone-double.png"
 import { Form, Row, Col } from "react-bootstrap"
 import {FiUser, FiMail, FiLock} from "react-icons/fi"
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import {Formik} from "formik"
 import * as Yup from "yup"
 import { Helmet } from "react-helmet"
@@ -41,11 +41,29 @@ const AuthValid = ({errors, handleSubmit, handleChange}) => {
           <Form.Control.Feedback type="invalid">Password must be at least 8 characters</Form.Control.Feedback>
         </Form.Group>
 
+        <div className="d-grid mt-5">
+              <button className="btn btn-primary btn-lg fw-bold button-login">Sign Up</button>
+        </div>
+
+        {/* <div className="text-center">
+            Don't have an account? Let's <Link to="/Login" className="fw-bold text-decoration-none text">Login</Link>
+        </div> */}
+
     </Form>
   )
 } 
 
 function Signup () {
+
+  const navigate = useNavigate()
+    const signUpReq = (user) => {
+    if (user.email === '' && user.username === '' && user.password === '') {
+      window.alert('Please fill the form correctly')
+    } else {
+      navigate('/CreatePIN')
+    }
+  }
+
   return (
     <>
     <Helmet>
@@ -94,15 +112,15 @@ function Signup () {
             <input type="password" className="form-control input-login" placeholder="Enter your password"/>
           </div> */}
 
-          <Formik initialValues={{username: '', email: '', password: ''}} validationSchema={signUpSchema}>
+          <Formik initialValues={{username: '', email: '', password: ''}} validationSchema={signUpSchema} onSubmit={signUpReq}>
             {(props) =><AuthValid {...props} />}
           </Formik>
 
-          <Link to="/CreatePin" className="text-decoration-none">
-            <div className="d-grid mt-5">
+          {/* <Link to="/CreatePin" className="text-decoration-none"> */}
+            {/* <div className="d-grid mt-5">
               <button className="btn btn-primary btn-lg fw-bold button-login">Sign Up</button>
-            </div>
-          </Link>
+            </div> */}
+          {/* </Link> */}
           
 
           <div className="text-center">

@@ -24,18 +24,17 @@ function Home() {
         <h1 className="top-h1">Zwallet</h1>
       </div>
       
-      <div className="button-topright">
         <div>
           <Link to="/Login" >
             <button className="login">Login</button>
           </Link>
-        </div>
-        <div>
+        
+        
           <Link to="/Signup" >
             <button className="signup">Sign Up</button>
           </Link>
         </div>
-      </div>
+     
 
       <div className="container-topleft">
         <h1 className="h1-topleft">Awesome App For Saving <span>Time.</span></h1>
