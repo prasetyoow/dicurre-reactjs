@@ -62,10 +62,6 @@ body {
   background: #7e8cdf;
 }
 
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
 .pin-wrap {
   max-height: 65px;
 }
@@ -74,8 +70,12 @@ input[type=number] {
   font-size: 30px; 
   text-align: center; 
   width: 40px; 
-  border: unset; 
+  border: unset;
   border-bottom: 1px solid gray;
+}
+
+input[type=number] { 
+  -moz-appearance: textfield; 
 }
 
 .pin-border {
@@ -84,8 +84,18 @@ input[type=number] {
   padding: 10px 10px;
 }
 
-.pin-border:focus {
+.pin-border:valid {
+  border: 2px solid #6379F4;
+}
+
+.pin-border input:focus {
   outline: none;
+  border-bottom: unset; 
+}
+
+.pin-border input:active {
+  outline: none;
+  border-bottom: unset;
 }
 
 .success-wrap {
@@ -102,3 +112,18 @@ input[type=number] {
   border-radius: 50%;
 }
 
+/* Mobile */
+
+@media only screen and (max-width: 600px) {
+  .background-auth {
+    height: 10px;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+  }
+
+  .bg-phone {
+    display: none;
+  }
+
+
+}
