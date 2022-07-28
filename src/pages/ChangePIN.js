@@ -35,22 +35,22 @@ function ChangePIN() {
               <div className="d-flex flex-column p-5 m-5 gap-5">
                 <div className="d-flex justify-content-center flex-row gap-5 pin-wrap">
                   <div className="d-flex align-items-center pin-border">
-                    <input type="number" className="pin-num" maxlength="1" min="0" max="9"/>
+                    <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
                   </div>
                   <div className="d-flex align-items-center pin-border">
-                    <input type="number" className="pin-num" maxlength="1" min="0" max="9"/>
+                    <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
                   </div>
                   <div className="d-flex align-items-center pin-border">
-                    <input type="number" className="pin-num" maxlength="1" min="0" max="9"/>
+                    <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
                   </div>
                   <div className="d-flex align-items-center pin-border">
-                    <input type="number" className="pin-num" maxlength="1" min="0" max="9"/>
+                    <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
                   </div>
                   <div className="d-flex align-items-center pin-border">
-                    <input type="number" className="pin-num" maxlength="1" min="0" max="9"/>
+                    <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
                   </div>
                   <div className="d-flex align-items-center pin-border">
-                    <input type="number" className="pin-num" maxlength="1" min="0" max="9"/>
+                    <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
                   </div>
                 </div>
 

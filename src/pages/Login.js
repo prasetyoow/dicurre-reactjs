@@ -69,21 +69,21 @@ function Login() {
     {location.state?.errorMsg && (
         <Alert className="m-0 sticky-top" variant="danger">{location.state.errorMsg}</Alert>
     )}
-      <Row className="min-vh-100 mw-100" >  
-        <Col className="d-flex flex-column gap-5 background-auth" >
+      <Row className="min-vh-100 mw-100">  
+        <Col className="d-flex flex-column gap-5 background-auth">
           <div className="d-flex flex-column align-items-center">
               <div>
                   <div className="d-flex justify-content-start">
-                    <span className="fs-2 fw-bold">Zwallet</span>
+                    <span className="fs-2 fw-bold logo-mobile">Zwallet</span>
                   </div>
-                  <div>
+                  <div className="bg-phone">
                     <img src={Imgdb} alt="phone-db" />
                   </div>
               </div>
 
               <div className ="d-flex flex-column gap-5 text-content">
-                <span className ="fs-3 fw-bold">App that Covering Banking Needs.</span>
-                <p className ="fw-normal">Zwallet is an application that focussing in banking needs for all users <br/> in the world. Always updated and always following world trends. <br/> 5000+ users registered in Zwallet everyday with worldwide <br/> users coverage. </p>
+                <span className ="fs-3 fw-bold bg-phone">App that Covering Banking Needs.</span>
+                <p className ="fw-normal bg-phone">Zwallet is an application that focussing in banking needs for all users <br/> in the world. Always updated and always following world trends. <br/> 5000+ users registered in Zwallet everyday with worldwide <br/> users coverage. </p>
               </div>
             </div>
         </Col>

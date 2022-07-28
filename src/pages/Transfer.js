@@ -45,7 +45,7 @@ function Transfer() {
 
                <div className="d-flex flex-column gap-3 align-items-center p-5 m-5">
                 <div>
-                  <input type="number" maxlength="2" min="0" max="100"/>
+                  <input type="number" placeholder="0.00" maxlength="2" min="0" max="100"/>
                 </div>
                 <div>
                   <span>Rp120.000 Available</span>

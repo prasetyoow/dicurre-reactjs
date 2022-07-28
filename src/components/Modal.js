@@ -15,7 +15,7 @@ function ConfirmPIN() {
 
   return (
     <>
-      <Button variant="primary" size="lg" onClick={handleShow}>
+      <Button className="fw-bold button-login" size="lg" onClick={handleShow}>
         Confirm
       </Button>
 
@@ -28,27 +28,27 @@ function ConfirmPIN() {
             <div className="d-flex justify-content-center flex-row gap-3 pin-wrap">
                 
                  <div className="d-flex align-items-center pin-border">
-                    <input type="number" className="pin-num" maxlength="1" min="0" max="9"/>
+                    <input type="number" className="pin-num text-center" maxlength="1" min="0" max="9"/>
                  </div>
                             
                 <div className="d-flex align-items-center pin-border">
-                    <input type="number" className="pin-num" maxlength="1" min="0" max="9"/>
+                    <input type="number" className="pin-num text-center" maxlength="1" min="0" max="9"/>
                 </div>
                             
                 <div className="d-flex align-items-center pin-border">
-                    <input type="number" className="pin-num" maxlength="1" min="0" max="9"/>
+                    <input type="number" className="pin-num text-center" maxlength="1" min="0" max="9"/>
                 </div>
                             
                 <div className="d-flex align-items-center pin-border">
-                    <input type="number" className="pin-num" maxlength="1" min="0" max="9"/>
+                    <input type="number" className="pin-num text-center" maxlength="1" min="0" max="9"/>
                 </div>
                             
                 <div className="d-flex align-items-center pin-border">
-                    <input type="number" className="pin-num" maxlength="1" min="0" max="9"/>
+                    <input type="number" className="pin-num text-center" maxlength="1" min="0" max="9"/>
                 </div>
                             
                 <div className="d-flex align-items-center pin-border">
-                    <input type="number" className="pin-num" maxlength="1" min="0" max="9"/>
+                    <input type="number" className="pin-num text-center" maxlength="1" min="0" max="9"/>
                 </div>
                           
               </div>
@@ -61,7 +61,7 @@ function ConfirmPIN() {
           </Button>
           </Link>
           <Link to="/StatusSuccess" >
-          <Button variant="success" className="fw-bold button-login" onClick={handleClose}>
+          <Button variant="success" onClick={handleClose}>
             Confirm
           </Button>
           </Link>
