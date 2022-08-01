@@ -93,8 +93,6 @@ body {
 }
 
 .profile-wrap {
-  width: 790px;
-  height: 110px;
   background: #FFFFFF;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
@@ -110,17 +108,10 @@ body {
   margin-bottom: 50px;
 }
 
-.notes-wrap {
-  width: 343px;
-  height: 37px;
-}
-
 .detail-wrap {
   background: #FFFFFF;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
-  width: 790px;
-  height: 92px;
   padding-top: 20px;
   padding-left: 10px;
   margin-top: 20px;
@@ -130,6 +121,12 @@ body {
   background: rgba(58, 61, 66, 0.1);
   border-radius: 12px;
   height: 54px;
+}
+
+.transfer-wrap {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
 }
 
 .transfer-wrap {
@@ -157,12 +154,10 @@ body {
 
 .footer-text {
   color: #EFEFEF;
-  padding-left: 100px
 }
 
 .footer-cont {
   color: #EFEFEF;
-  padding-right: 100px;
 }
 
 .button-success {
@@ -198,8 +193,6 @@ body {
   background: #FFFFFF;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
-  width: 790px;
-  height: 80px;
 }
 
 .pencil {
@@ -260,4 +253,19 @@ body {
 .cls-btn {
   border: unset;
   background-color: unset;
+}
+
+/* Mobile Responsive */
+@media only screen and (max-width: 600px) {
+  .header-full-wrap {
+    background-color: #7e8cdf;
+  }
+
+  .left-head {
+    text-align: start;
+  }
+
+  .nav-wrap {
+    display: none !important;
+  }
 }
