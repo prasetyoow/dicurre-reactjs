@@ -1,5 +1,5 @@
 import React from "react"
-import { Col } from "react-bootstrap"
+import { Col, Container } from "react-bootstrap"
 import {Link} from "react-router-dom"
 import {Helmet} from "react-helmet"
 import {FiArrowUp, FiArrowDown, FiPlus} from "react-icons/fi"
@@ -18,24 +18,21 @@ function Dashboard() {
     <Helmet>
       <title>Dashboard</title>
     </Helmet>
-
+  
     {/* Start of Header */}
     <Header />  
     {/* End of Header */}
 
        {/* Start of Main */}
-        <main class="d-flex flex-row gap-3 px-2 py-4 mx-5">
+       <Container className="d-flex flex-column flex-md-row gap-3 py-5">
           
             {/* Start of Sidebars */}
             <Sidebars />
             {/* End of Sidebars */}
-
             
-          {/* Start of Container Article */}
-          <Col className="col-8">
-         
-            {/* Start of Transfer */}
-            <div className="d-flex flex-column gap-3">
+          {/* Start of Transfer */}
+          <Col className="d-flex flex-column">
+            <Col className="d-flex flex-column gap-3">
                <div className="d-flex flex-row justify-content-between align-items-center p-3 m-4 balance-wrap">
                   <div className="d-flex flex-column gap-1 p-3">
                      <span className="fw-normal balance-text">Balance</span>
@@ -59,11 +56,11 @@ function Dashboard() {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </Col>
             {/* End of Transfer */}
             {/* Start of Graphic */}
-            <Col className="d-flex flex-row gap-2 main-wrap-full">
-              <Col className="rounded d-flex flex-column gap-3 p-3 m-4 main-wrap">
+            <Col className="d-flex flex-column flex-md-row gap-2 main-wrap-full">
+              <Col className="d-flex flex-column gap-3 p-3 m-4 main-wrap">
 
                   <div class="d-flex flex-row p-2 justify-content-between">
                       <div class="d-flex flex-column gap-2">
@@ -83,8 +80,8 @@ function Dashboard() {
                   </div>
 
              </Col>
-              <Col className="col-4 p-3 m-2 history-wrap">
-                <div class="d-flex justify-content-between p-2 mt-3 flex-row">
+             <Col className="p-3 m-2 history-wrap">
+                <div class="d-flex justify-content-between p-2 mt-3">
                     <span class="fw-bold">Transaction History</span>
                     <span class="text-decoration-none" href="#">See all</span>
                 </div>
@@ -146,14 +143,13 @@ function Dashboard() {
             {/* Start of History Transfer */}
             
             {/* End Of History Transfer */}
-          </Col>
-          {/* Start of Container Article */}
-         
-       </main>
+          </Col>         
+       </Container>
        {/* End of Main */}
        {/* Start of Footer */}
        <Footer />
        {/* End of Footer */}
+  
     </>
   )
 }

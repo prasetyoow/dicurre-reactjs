@@ -1,5 +1,5 @@
 import React from "react"
-import {Col} from "react-bootstrap"
+import { Col, Container } from "react-bootstrap"
 import {Link} from "react-router-dom"
 import {FiCheck, FiShare2, FiDownload} from "react-icons/fi"
 import Imgsam from "../assets/img/samuel.png"
@@ -19,12 +19,12 @@ function StatusSuccess() {
     {/* End of Header */}
 
        {/* Start of Main */}
-       <main class="d-flex flex-row gap-3 px-2 py-5 mx-5">
+       <Container className="d-flex flex-column flex-md-row gap-3 py-5">
           {/* Start of Sidebars */}
           <Sidebars />
           {/* End of Sidebars */}
           {/* Start of Contents */}
-          <Col class="col-8 d-flex flex-column transfer-wrap">
+          <Col class="d-flex flex-column transfer-wrap">
             <div class="d-flex flex-column transfer-wrap">
               <div class="d-flex flex-column py-2 my-1 mx-3">
                 <div class="d-flex flex-column gap-3 align-items-center">
@@ -93,7 +93,7 @@ function StatusSuccess() {
               </div>
         </Col>
           {/* End of Contents */}
-        </main>
+        </Container>
         {/* End of Main */}
       {/* Start of Footer */}
       <Footer />  

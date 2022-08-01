@@ -1,5 +1,5 @@
 import React from "react"
-import { Col } from "react-bootstrap"
+import { Col, Container } from "react-bootstrap"
 import Footer from "../components/Footer"
 import Sidebars from "../components/Sidebars"
 import Header from "../components/Header"
@@ -17,13 +17,13 @@ function TopUp() {
     {/* End of Header */}
 
        {/* Start of Main  */}
-      <main class="d-flex flex-row gap-3 px-2 py-5 mx-5">
+      <Container className="d-flex flex-column flex-md-row gap-3 py-5">
         {/* Start of Sidebars */}
         <Sidebars />
         {/* End of Sidebars */}
         
         {/* Start of Transfer */}
-        <Col className="col-9 d-flex flex-column transfer-wrap">
+        <Col md={9} className="d-flex flex-column transfer-wrap">
             <div className="d-flex flex-column py-2 my-2 mx-3">
 
                 <div className="p-3">
@@ -90,7 +90,7 @@ function TopUp() {
             </div>
         </Col>
         {/* End of Transfer */}
-      </main>
+      </Container>
       {/* End of Main */}
       {/* Start of Footer */}
       <Footer /> 

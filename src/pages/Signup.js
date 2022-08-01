@@ -56,7 +56,10 @@ const AuthValid = ({errors, handleSubmit, handleChange}) => {
 function Signup () {
 
   const navigate = useNavigate()
-    const signUpReq = (user) => {
+  // const successMsg = useSelector((state) => state.auth.successMsg);
+  // const errorMsg = useSelector((state) => state.auth.errorMsg);
+
+  const signUpReq = (user) => {
     if (user.email === '' && user.username === '' && user.password === '') {
       window.alert('Please fill the form correctly')
     } else {

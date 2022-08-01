@@ -1,5 +1,5 @@
 import React from "react"
-import { Col } from "react-bootstrap"
+import { Col, Container } from "react-bootstrap"
 import Imgsam from "../assets/img/samuel.png"
 import Imgnet from "../assets/img/netflix.png"
 import Imgjess from "../assets/img/jess.png"
@@ -20,13 +20,13 @@ function History() {
       {/* End of Header */}
 
        {/* Start of Main */}
-       <main class="d-flex flex-row gap-3 px-2 py-5 mx-5">
+       <Container className="d-flex flex-column flex-md-row gap-3 py-5">
           {/* Start of Sidebars */}
           <Sidebars />
           {/* End of Sidebars */}
 
           {/* Start of Trans History */}
-          <Col className="col-8 d-flex flex-column gap-3 p-5 history-wrap">
+          <Col md={8} className="d-flex flex-column gap-3 p-5 history-wrap">
                 <div>
                   <span className="fw-bold">Transaction History</span>
                 </div>
@@ -93,7 +93,7 @@ function History() {
             </div>
           </Col>
       {/* End of Trans History */}
-        </main>
+        </Container>
       {/* End of Main */}
     {/* Start of Footer */}
     <Footer />  

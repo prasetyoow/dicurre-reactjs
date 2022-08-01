@@ -4,8 +4,17 @@ import { Row, Col } from "react-bootstrap"
 import {Link} from "react-router-dom"
 import {FiCheck} from 'react-icons/fi'
 import { Helmet } from "react-helmet"
+import { useNavigate} from "react-router-dom"
 
 function CreatePinSucess() {
+
+  const navigate = useNavigate();
+
+  const onLogin = () => {
+    localStorage.setItem("auth", "randomToken");
+    navigate("/Dashboard");
+  }
+
   return (
     <>
     <Helmet>
@@ -38,7 +47,7 @@ function CreatePinSucess() {
 
           <Link to="/Dashboard" className="text-decoration-none">
             <div className="d-grid mt-5">
-              <button className="btn btn-primary btn-lg fw-bold button-login">Login Now</button>
+              <button className="btn btn-primary btn-lg fw-bold button-login" onClick={onLogin}>Login Now</button>
             </div>
           </Link>
           

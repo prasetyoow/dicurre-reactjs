@@ -20,9 +20,9 @@ function Home() {
       <title>Dicurre</title>
     </Helmet>
     <header>
-      <div>
+      
         <h1 className="top-h1">Zwallet</h1>
-      </div>
+      
       
         <div>
           <Link to="/Login" >
@@ -34,7 +34,7 @@ function Home() {
             <button className="signup">Sign Up</button>
           </Link>
         </div>
-     
+      </header>
 
       <div className="container-topleft">
         <h1 className="h1-topleft">Awesome App For Saving <span>Time.</span></h1>
@@ -43,7 +43,7 @@ function Home() {
           <button className="try-free">Try it Free</button>
         </Link>
         </div>
-    </header>
+    
     
     <div className="rectangle">
       <img src={Imgbg} alt="rectangle"></img>

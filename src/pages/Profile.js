@@ -1,5 +1,5 @@
 import React from "react"
-import { Col } from "react-bootstrap"
+import { Col, Container } from "react-bootstrap"
 import {Link} from "react-router-dom"
 import {FiEdit2, FiArrowRight} from "react-icons/fi"
 import Imgle from "../assets/img/Michael Le.png"
@@ -19,12 +19,12 @@ function Profile() {
     {/* End of Header */}
 
        {/* Start of Main */}
-       <main class="d-flex flex-row gap-3 px-2 py-5 mx-5">
+       <Container className="d-flex flex-column flex-md-row gap-3 py-5">
           {/* Start of Sidebars */}
           <Sidebars />
           {/* End of Sidebars */}
           {/* Start of Profile */}
-          <Col className="col-8 d-flex flex-column align-items-center transfer-wrap">
+          <Col className="d-flex flex-column align-items-center transfer-wrap">
             <div className="d-flex flex-column gap-5 py-2 my-2 mx-5">
 
               <div className="d-flex flex-column gap-2 align-items-center">
@@ -79,7 +79,7 @@ function Profile() {
             </div>
           </Col>
           {/* End of Profile */}
-        </main>
+        </Container>
         {/* End of Main */}
       {/* Start of Footer */}
       <Footer />

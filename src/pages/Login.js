@@ -3,9 +3,11 @@ import Imgdb from "../assets/img/phone-double.png"
 import { Row, Col, Form, Alert} from "react-bootstrap"
 import {FiMail, FiLock} from "react-icons/fi"
 import { Helmet } from "react-helmet"
-import {Link, useNavigate, useLocation} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import {Formik} from "formik"
+import { login } from "../redux/asyncActions/auth";
 import * as Yup from "yup"
+import { useSelector, useDispatch } from "react-redux"
 
 const loginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email address format').required('Required'),
@@ -13,9 +15,13 @@ const loginSchema = Yup.object().shape({
 })
 
 const AuthValid = ({errors, handleSubmit, handleChange}) => {
+  const successMsg = useSelector((state) => state.auth.successMsg);
+  const errorMsg = useSelector((state) => state.auth.errorMsg);
+
   return (
     <Form noValidate onSubmit={handleSubmit} className="d-flex flex-column gap-5" >
-      
+      {successMsg && <Alert variant="success">{successMsg}</Alert>}
+      {errorMsg && <Alert variant="danger">{errorMsg}</Alert>}
         <Form.Group  className ="mb-3 input-group" controlId="formatBasicEmail">
           <span className ="input-group-text icon-login">
             <FiMail size={24}  />
@@ -49,26 +55,26 @@ const AuthValid = ({errors, handleSubmit, handleChange}) => {
 } 
 
 function Login() {
-
-  const location = useLocation()
-  const navigate = useNavigate()
-  const LoginReq = (user) => {
-    if (user.email === '' && user.password === '') {
-      window.alert('Please fill the form correctly')
-    } else {
-      localStorage.setItem("auth", "randomToken");
-      navigate('/Dashboard')
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.token);
+  const navigate = useNavigate();
+  
+  const onLogin = (value) => {
+    const data = {email: value.email, password: value.password}
+    dispatch(login(data))
     }
-  }
+
+  React.useEffect(() => {
+    if (token) {
+      navigate("/Dashboard");
+    }
+  }, [navigate, token]);
 
   return (
     <>
     <Helmet>
       <title>Login</title>
     </Helmet>
-    {location.state?.errorMsg && (
-        <Alert className="m-0 sticky-top" variant="danger">{location.state.errorMsg}</Alert>
-    )}
       <Row className="min-vh-100 mw-100">  
         <Col className="d-flex flex-column gap-5 background-auth">
           <div className="d-flex flex-column align-items-center">
@@ -105,7 +111,7 @@ function Login() {
             <input type="password" className ="form-control input-login" placeholder="Enter your password" />
           </div> */}
 
-          <Formik initialValues={{email: '', password: ''}} validationSchema={loginSchema} onSubmit={LoginReq}>
+          <Formik initialValues={{email: '', password: ''}} validationSchema={loginSchema} onSubmit={onLogin}>
             {(props) =><AuthValid {...props} />}
           </Formik>
           

@@ -1,5 +1,5 @@
 import React from "react"
-import {Col} from "react-bootstrap"
+import { Col, Container} from "react-bootstrap"
 import { Helmet } from "react-helmet"
 import Imgsam from "../assets/img/samuel.png"
 import ConfirmPIN from "../components/Modal"
@@ -7,7 +7,9 @@ import Header from "../components/Header"
 import Sidebars from "../components/Sidebars"
 import Footer from "../components/Footer"
 
+
 function Confirmation() {
+  
   return (
     <>
     <Helmet>
@@ -18,12 +20,12 @@ function Confirmation() {
     {/* End of Header */}
 
        {/* Start of Main */}
-       <main class="d-flex flex-row gap-3 px-2 py-5 mx-5">
+       <Container className="d-flex flex-column flex-md-row gap-3 py-5">
           {/* Start of Sidebars */}
           <Sidebars />
           {/* End of Sidebars */}
           {/* Start of Contents */}
-          <Col className="col-8 d-flex flex-column transfer-wrap">
+          <Col className="d-flex flex-column transfer-wrap">
             <div className="d-flex flex-column transfer-wrap">
               <div className="d-flex flex-column py-2 my-2 mx-3">
                   
@@ -69,7 +71,7 @@ function Confirmation() {
                   </div>
 
                   {/* Button Modal */}
-                  <div className="d-grid justify-content-end">
+                  <div className="d-grid justify-content-end my-3">
                     <ConfirmPIN />
                   </div>
 
@@ -77,7 +79,7 @@ function Confirmation() {
             </div> 
           </Col>
           {/* End of Contents */}
-        </main>
+        </Container>
         {/* End of Main */}
       {/* Start of Footer */}
       <Footer />  

@@ -1,5 +1,5 @@
 import React from "react"
-import { Col } from "react-bootstrap"
+import { Col, Container } from "react-bootstrap"
 import {Link} from "react-router-dom"
 import { Helmet } from "react-helmet"
 import Header from "../components/Header"
@@ -17,12 +17,12 @@ function ChangePIN() {
     {/* End of Header */}
 
        {/* Start of Main */}
-       <main class="d-flex flex-row gap-3 px-2 py-5 mx-5">
+       <Container className="d-flex flex-column flex-md-row gap-3 py-5">
           {/* Start of Sidebars */}
           <Sidebars />
           {/* End of Sidebars */}
           {/* Start of Contents */}
-          <Col className="col-8 d-flex flex-column transfer-wrap">
+          <Col className="d-flex flex-column transfer-wrap">
             <div className="d-flex flex-column py-2 my-2 mx-3">
               <div className="px-3">
                 <span>Change PIN</span>
@@ -33,7 +33,7 @@ function ChangePIN() {
               </div>
               
               <div className="d-flex flex-column p-5 m-5 gap-5">
-                <div className="d-flex justify-content-center flex-row gap-5 pin-wrap">
+                <div className="d-flex justify-content-center flex-row gap-4 pin-wrap">
                   <div className="d-flex align-items-center pin-border">
                     <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
                   </div>
@@ -64,7 +64,7 @@ function ChangePIN() {
             </div>
           </Col>
           {/* End of Contents */}
-        </main>
+        </Container>
         {/* End of Main */}
       {/* Start of Footer */}
       <Footer />

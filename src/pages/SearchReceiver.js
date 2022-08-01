@@ -1,5 +1,5 @@
 import React from "react"
-import { Col } from "react-bootstrap"
+import { Col, Container } from "react-bootstrap"
 import {Link} from "react-router-dom"
 import {FiSearch} from "react-icons/fi"
 import Imgsuhi from "../assets/img/suhi.png" 
@@ -22,13 +22,13 @@ function SearchReceiver() {
     {/* End of Header */}
 
        {/* Start of Main */}
-       <main class="d-flex flex-row gap-3 px-2 py-5 mx-5">
+       <Container className="d-flex flex-column flex-md-row gap-3 py-5">
           {/* Start of Sidebars */}
           <Sidebars />
           {/* End of Sidebars */}
 
           {/* Start of Transfer */}
-          <Col className="col-8 d-flex flex-column gap-3 p-5 history-wrap">
+          <Col md={8} className="d-flex flex-column gap-3 p-5 history-wrap">
             <div>
               <span className="fw-bold">Search Receiver</span>
             </div>
@@ -87,7 +87,7 @@ function SearchReceiver() {
             </div>
           </Col>
           {/* End of Transfer */}
-        </main>
+        </Container>
         {/* End of Main */}
       {/* Start of Footer */}
       <Footer />    
