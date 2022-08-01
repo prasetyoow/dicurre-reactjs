@@ -1,15 +1,16 @@
 import React from 'react';
-import { Row, Col } from "react-bootstrap"
+import { Row, Col, Dropdown } from "react-bootstrap"
 import { Link } from 'react-router-dom';
 import Imgrob from "../assets/img/robert.png"
 import {FiBell} from "react-icons/fi"
+import DropdownToggle from 'react-bootstrap/esm/DropdownToggle';
 
 function Header() {
   return (
     <>
     {/* Start of Header */}
     <Row className="d-flex flex-row align-items-center mw-100 m-0 header-full-wrap">
-         <Col className="col">
+         <Col>
             <div className="d-flex justify-content-start p-5">
               <span className="fw-bold fs-2 head-logo"><Link to="/Dashboard" className="text-decoration-none">Zwallet</Link></span>
             </div>
@@ -18,7 +19,7 @@ function Header() {
          <Col>
             <div className="d-flex align-items-center justify-content-end p-5">
                <Link to="/Profile" className="text-decoration-none text-muted">
-                 <div>
+                 <div className="profile-head">
                    <img src={Imgrob} alt="head-profile"/>
                  </div>
                </Link>
@@ -28,10 +29,15 @@ function Header() {
                   <span className="fw-normal prof-num">+62 8139 3877 7946</span>
                </div>
               
-              <div>
-                <FiBell size={24} />
-              </div>
+              <Dropdown>
+                <DropdownToggle>
+                  <div>
+                    <FiBell size={24} />
+                  </div>
+                </DropdownToggle>
+              </Dropdown>
             </div>
+
          </Col>
        </Row>
        {/* End of Header */}

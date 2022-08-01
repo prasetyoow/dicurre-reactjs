@@ -15,7 +15,7 @@ function Sidebars() {
 
   return (
     <>
-    <Col className="col-3 d-flex flex-column nav-wrap p-5 m-3">
+    <Col className="col-md-3 d-flex flex-column nav-wrap p-5 m-3">
             <div className="d-flex flex-column gap-5">
                   <Link to="/History" className="text-decoration-none text-muted">
                     <div className="d-flex flex-row gap-3 icon-nav">
