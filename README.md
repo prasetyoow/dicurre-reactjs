@@ -1,4 +1,4 @@
- # **REACT NATIVE - Dicurre (eWallet Project)**
+ # **REACT.JS - Dicurre (eWallet Project)**
 
  ## **About**
 
