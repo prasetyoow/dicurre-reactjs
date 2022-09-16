@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+ # **REACT NATIVE - Dicurre (eWallet Project)**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ ## **About**
 
-## Available Scripts
+ A website for transfering money to anyone you connected. The website is made using React.js as a framework and CSS/Bootstrap for the styling
 
-In the project directory, you can run:
+## **Features**
 
-### `yarn start`
+ * Login
+ * Register
+ * Transfer
+ * Top up
+ * Edit Profile
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ ## **Tech Stacks**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[![My Skills](https://skills.thijs.gg/icons?i=javascript,react,css,bootstrap,&theme=light)](https://skills.thijs.gg)
 
-### `yarn test`
+## **Acknowledgements**
+1. [Axios](https://axios-http.com/docs/intro)
+2. [React Redux](https://react-redux.js.org/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## **Requirements**
+1. [Node.Js](https://nodejs.org/en/ "Node Js")
+2. Package Manager
+    * [NPM](https://www.npmjs.com/ "NPM")
+    * [Yarn](https://yarnpkg.com/ "Yarn")
 
-### `yarn build`
+## **How to Install**
+1. Download this repository or clone on your IDE ```https://github.com/prasetyoow/fw9-react-dicurre.git```
+2. Install node_modules using package manager (Yarn or NPM)
+    * ```npm install```
+    * ```yarn add```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## **How to Run**
+1. Type on your terminal
+    * ```npm run android```
+    * ```yarn start android```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## **Licenses**
+&copy;  [Wahyu Prasetyo](https://github.com/prasetyoow)
