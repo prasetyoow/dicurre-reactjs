@@ -1,11 +1,13 @@
 import React from "react"
 import Imgdb from "../assets/img/phone-double.png"
-import { Form, Row, Col } from "react-bootstrap"
+import { Alert, Form, Row, Col } from "react-bootstrap"
 import {FiUser, FiMail, FiLock} from "react-icons/fi"
 import {Link, useNavigate} from "react-router-dom"
 import {Formik} from "formik"
 import * as Yup from "yup"
 import { Helmet } from "react-helmet"
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../redux/asyncActions/auth"
 
 const signUpSchema = Yup.object().shape({
   username: Yup.string().min(6).required('Required'),
@@ -14,9 +16,20 @@ const signUpSchema = Yup.object().shape({
 })
 
 const AuthValid = ({errors, handleSubmit, handleChange}) => {
+
+  const navigate = useNavigate();
+  const successMsg = useSelector((state) => state.auth.successMsg);
+  const errorMsg = useSelector((state) => state.auth.errorMsg);
+
+  React.useEffect(() => {
+    if (successMsg) {
+      navigate("/Login", { state: { successMsg } });
+    }
+  }, [navigate, successMsg]);
+
   return (
     <Form noValidate onSubmit={handleSubmit} className="d-flex flex-column gap-5" >
-
+      {errorMsg && <Alert variant="danger">{errorMsg}</Alert>}
         <Form.Group  className ="mb-3 input-group" controlId="formatBasicUsername">
           <span className ="input-group-text icon-login">
             <FiUser size={24}  />
@@ -55,17 +68,28 @@ const AuthValid = ({errors, handleSubmit, handleChange}) => {
 
 function Signup () {
 
-  const navigate = useNavigate()
-  // const successMsg = useSelector((state) => state.auth.successMsg);
-  // const errorMsg = useSelector((state) => state.auth.errorMsg);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // const token = useSelector((state) => state.auth.token);
+ 
+  // const signUpReq = (user) => {
+  //   if (user.email === '' && user.username === '' && user.password === '') {
+  //     window.alert('Please fill the form correctly')
+  //   } else {
+  //     navigate('/CreatePIN')
+  //   }
+  // }
 
-  const signUpReq = (user) => {
-    if (user.email === '' && user.username === '' && user.password === '') {
-      window.alert('Please fill the form correctly')
-    } else {
-      navigate('/CreatePIN')
-    }
-  }
+  const onRegister = (value) => {
+    dispatch(register(value));
+    navigate('/Dashboard')
+  };
+
+  React.useEffect(() => {
+    // if (token) {
+    //   navigate("/Dashboard");
+    // }
+  }, []);
 
   return (
     <>
@@ -115,7 +139,7 @@ function Signup () {
             <input type="password" className="form-control input-login" placeholder="Enter your password"/>
           </div> */}
 
-          <Formik initialValues={{username: '', email: '', password: ''}} validationSchema={signUpSchema} onSubmit={signUpReq}>
+          <Formik initialValues={{username: '', email: '', password: ''}} validationSchema={signUpSchema} onSubmit={onRegister}>
             {(props) =><AuthValid {...props} />}
           </Formik>
 

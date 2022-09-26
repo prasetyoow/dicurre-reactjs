@@ -43,7 +43,7 @@ const AuthValid = ({errors, handleSubmit, handleChange}) => {
         </div> 
 
         <div className ="d-grid mt-5">
-              <button className="btn btn-primary btn-lg fw-bold button-login">Login</button>
+              <button type="submit" className="btn btn-primary btn-lg fw-bold button-login">Login</button>
         </div>
 
         <div className ="text-center">

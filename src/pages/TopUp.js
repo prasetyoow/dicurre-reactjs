@@ -4,6 +4,7 @@ import Footer from "../components/Footer"
 import Sidebars from "../components/Sidebars"
 import Header from "../components/Header"
 import { Helmet } from "react-helmet"
+import Bottombars from "../components/Bottombars"
 
 
 function TopUp() {
@@ -21,7 +22,7 @@ function TopUp() {
         {/* Start of Sidebars */}
         <Sidebars />
         {/* End of Sidebars */}
-        
+        <Bottombars />
         {/* Start of Transfer */}
         <Col md={9} className="d-flex flex-column transfer-wrap">
             <div className="d-flex flex-column py-2 my-2 mx-3">

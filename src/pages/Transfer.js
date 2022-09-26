@@ -1,5 +1,5 @@
 import React from "react"
-import { Col, Container, Form, FormControl, FormGroup } from "react-bootstrap"
+import { Col, Container, Form, FormControl, FormGroup, Alert } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { FiEdit2 } from "react-icons/fi"
 import Imgsam from "../assets/img/samuel.png"
@@ -9,14 +9,19 @@ import Header from "../components/Header"
 import { Helmet } from "react-helmet"
 import { Formik } from "formik"
 import * as Yup from "yup"
-import { useDispatch } from "react-redux"
-import { notesFill, amountFill } from "../redux/reducers/amountTrf"
+import Bottombars from "../components/Bottombars"
+
+// redux
+import { useDispatch, useSelector } from "react-redux"
+import { getUserLogin } from "../redux/asyncActions/profile"
+import { getamount, getnotes } from "../redux/reducers/transactions"
 
 const amountSchema = Yup.object().shape({
-  amount: Yup.number().min(20000, "Minimal Transfer is IDR 20.000").max(1000000, "Maximal Transfer is IDR 1.000.000").required("Please fill the amount")
+  amount: Yup.number().min(20000, "Minimum Transfer is IDR 20.000").max(1000000, "Maximum Transfer is IDR 1.000.000").required("Please fill the amount")
 })
 
 const AmountValid = ({errors, handleSubmit, handleChange}) => {
+  const profile = useSelector(state => state.profile.data);
   return (
   <Form noValidate onSubmit={handleSubmit} className="d-flex flex-column text-center justify-content-center gap-5">
 
@@ -26,7 +31,7 @@ const AmountValid = ({errors, handleSubmit, handleChange}) => {
     </Form.Group>
     
     <div className="text-center">
-      <span>Rp120.000 Available</span>
+      <span>{profile.balance} Available</span>
     </div>
 
     
@@ -46,20 +51,31 @@ const AmountValid = ({errors, handleSubmit, handleChange}) => {
 }
 
 function Transfer() {
-
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const amountReq = (user) => {
-    if (user.notes === '') {
-      dispatch(amountFill((user.amount)))
-      navigate('/Confirmation')
-    } else {
-      dispatch(amountFill((user.amount)))
-      dispatch(notesFill((user.notes)))
-      navigate('/Confirmation')
-    }
-  }
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const token = useSelector(state => state.auth.token);
+  const name = useSelector(state => state.transactions.name);
+  const phone = useSelector(state => state.transactions.phone);
+  const profile = useSelector(state => state.profile.data);
+  const slicedMoney = profile.balance
+    .slice('2')
+    .replace('.', '')
+    .replace('.', '');
+    const onConfirm = val => {
+      console.log(val.amount + 'ini amount');
+      console.log(val.notes + 'ini notes');
+      if (parseInt(val.amount, 10) < parseInt(slicedMoney, 10)) {
+        dispatch(getamount(val.amount));
+        dispatch(getnotes(val.notes));
+        navigate('Confirmation');
+      } else {
+        Alert.alert('Balance insufficient');
+      }
+      navigate('/Confirmation');
+    };
+    React.useEffect(() => {
+      dispatch(getUserLogin(token));
+    }, [dispatch, token]);
   return (
     <>
     <Helmet>
@@ -74,7 +90,8 @@ function Transfer() {
           {/* Start of Sidebars */}
           <Sidebars />
           {/* End of Sidebars */}
-          <Col className="d-flex flex-column transfer-wrap">
+          <Bottombars />
+          <Col md={9} className="d-flex flex-column transfer-wrap">
             <div className="d-flex flex-column py-2 my-2 mx-3">
               <div className="px-3">
                 <span>Transfer Money</span>
@@ -94,8 +111,8 @@ function Transfer() {
                 <span className="text-muted">Type the amount you want to transfer and then <br/> press continue to the next steps. </span>  
               </div>
 
-              <Formik initialValues={{amount: '', notes: ''}} validationSchema={amountSchema} onSubmit={amountReq}>
-              {(props)=><AmountValid {...props}/>}
+              <Formik initialValues={{amount: '', notes: ''}} validationSchema={amountSchema} onSubmit={onConfirm}>
+              {(props) => <AmountValid {...props}  />}
               </Formik>
 
               

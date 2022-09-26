@@ -8,6 +8,7 @@ import Header from "../components/Header"
 import Sidebars from "../components/Sidebars"
 import Footer from "../components/Footer"
 import { Helmet } from "react-helmet"
+import Bottombars from "../components/Bottombars"
 
 function History() {
   return (
@@ -24,9 +25,9 @@ function History() {
           {/* Start of Sidebars */}
           <Sidebars />
           {/* End of Sidebars */}
-
+          <Bottombars />
           {/* Start of Trans History */}
-          <Col md={8} className="d-flex flex-column gap-3 p-5 history-wrap">
+          <Col md={9} className="d-flex flex-column gap-3 p-5 history-wrap">
                 <div>
                   <span className="fw-bold">Transaction History</span>
                 </div>

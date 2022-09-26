@@ -1,15 +1,41 @@
 import React from "react"
 import { Col, Container} from "react-bootstrap"
 import { Helmet } from "react-helmet"
+import { useNavigate } from "react-router-dom"
 import Imgsam from "../assets/img/samuel.png"
 import ConfirmPIN from "../components/Modal"
 import Header from "../components/Header"
 import Sidebars from "../components/Sidebars"
 import Footer from "../components/Footer"
 
+// redux
+import { useDispatch, useSelector } from "react-redux"
+import {getdate, resetmsg} from '../redux/reducers/transactions'
 
 function Confirmation() {
-  
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // const token = useSelector(state => state.auth.token);
+  const name = useSelector(state => state.transactions.name);
+  const phone = useSelector(state => state.transactions.phone);
+  const profile = useSelector(state => state.profile.data);
+  const amount = useSelector(state => state.transactions.amount);
+  const notes = useSelector(state => state.transactions.notes);
+  const date = new Date().toISOString();
+  const dateOnly = date.slice(0, 10);
+  const hour = date.slice(11, 16);
+  const slicedMoney = profile.balance
+    .slice('2')
+    .replace('.', '')
+    .replace('.', '');
+  console.log(slicedMoney);
+  const onSubmit = val => {
+    dispatch(getdate(date));
+    navigate('EnterPIN');
+  };
+  React.useEffect(() => {
+    dispatch(resetmsg());
+  }, [dispatch]);
   return (
     <>
     <Helmet>
@@ -42,8 +68,7 @@ function Confirmation() {
                         <div className="d-flex flex-column gap-1">
                             <span>Samuel Suhi</span>
                             <span className="text-muted">+62 813-8492-9994</span>
-                        </div>
-                        
+                        </div>                       
                   </div>
             
                   <div className="py-4 px-3">

@@ -1,14 +1,32 @@
 import React from "react"
 import { Col, Container } from "react-bootstrap"
-import {Link} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import {FiEdit2, FiArrowRight} from "react-icons/fi"
-import Imgle from "../assets/img/Michael Le.png"
+import profDef from "../assets/img/defaultProfile.png"
 import Sidebars from "../components/Sidebars"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { Helmet } from "react-helmet"
+import Bottombars from "../components/Bottombars"
+
+// redux
+import { getUserLogin } from "../redux/asyncActions/profile"
+import { useDispatch, useSelector } from "react-redux"
+import { logout } from "../redux/reducers/auth"
 
 function Profile() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const profile = useSelector(state => state.profile.data)
+  const token = useSelector(state => state.auth.token)
+  React.useEffect(() => {
+    dispatch(getUserLogin(token));
+  }, []);
+
+  const onLogout = () => {
+    dispatch(logout())
+    navigate("/Login");
+  }
   return (
     <>
     <Helmet>
@@ -23,13 +41,22 @@ function Profile() {
           {/* Start of Sidebars */}
           <Sidebars />
           {/* End of Sidebars */}
+          <Bottombars />
           {/* Start of Profile */}
-          <Col className="d-flex flex-column align-items-center transfer-wrap">
+          <Col md={9} className="d-flex flex-column align-items-center transfer-wrap">
             <div className="d-flex flex-column gap-5 py-2 my-2 mx-5">
 
               <div className="d-flex flex-column gap-2 align-items-center">
                 <div>
-                  <img src={Imgle} alt="prof-le"/>
+                  <img src={profDef
+                    // profile.picture === null
+                    //   ? require('../assets/img/defaultProfile.png')
+                    //   : {
+                    //       uri:
+                    //         'http://192.168.1.10:8888/public/uploads/' +
+                    //         profile.picture,
+                    //     }
+                  } alt="prof-le"/>
                 </div>
                 <Link to="/PersonalInfo" className="text-decoration-none">
                   <div>
@@ -39,10 +66,10 @@ function Profile() {
                 </Link>
                
                 <div>
-                  <span className="fw-bold fs-2">Robert Chandler</span>
+                  <span className="fw-bold fs-2">{profile.fullname}</span>
                 </div>
                 <div>
-                  <span className="text-muted">+62 813-9387-7946</span>
+                  <span className="text-muted">{profile.phone_number}</span>
                 </div>
               </div>
               
@@ -70,7 +97,7 @@ function Profile() {
                 </Link>
 
                 <Link to="/Login" className="text-decoration-none text-muted">
-                  <div className="d-flex justify-content-between profile-detail-wrap">
+                  <div className="d-flex justify-content-between profile-detail-wrap" onClick={onLogout}>
                     <span className="text-muted">Logout</span>
                   </div>
                 </Link>

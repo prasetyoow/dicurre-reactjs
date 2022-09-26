@@ -6,6 +6,7 @@ import Header from "../components/Header"
 import Sidebars from "../components/Sidebars"
 import Footer from "../components/Footer"
 import { Helmet } from "react-helmet"
+import Bottombars from "../components/Bottombars"
 
 function ManagePhNumber() {
   return (
@@ -22,8 +23,9 @@ function ManagePhNumber() {
           {/* Start of Sidebars */}
           <Sidebars />
           {/* End of Sidebars */}
+          <Bottombars />
           {/* Start of Contents */}
-          <Col className="d-flex flex-column transfer-wrap">
+          <Col md={9} className="d-flex flex-column transfer-wrap">
             <div className="d-flex flex-column py-2 my-2 mx-3">
               <div className="px-3">
                 <span>Manage Phone Number</span>

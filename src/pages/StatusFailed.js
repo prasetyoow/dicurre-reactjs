@@ -7,6 +7,7 @@ import Footer from "../components/Footer"
 import Sidebars from "../components/Sidebars"
 import Header from "../components/Header"
 import { Helmet } from "react-helmet"
+import Bottombars from "../components/Bottombars"
 
 function StatusFailed() {
   return (
@@ -24,9 +25,9 @@ function StatusFailed() {
           {/* Start of Sidebars */}
           <Sidebars />
           {/* End of Sidebars */}
-          
+          <Bottombars />
           {/* Start of Contents */}
-          <Col class="d-flex flex-column transfer-wrap">
+          <Col md={9} class="d-flex flex-column transfer-wrap">
             <div class="d-flex flex-column transfer-wrap">
               <div class="d-flex flex-column py-2 my-1 mx-3">
                 <div class="d-flex flex-column gap-3 align-items-center">

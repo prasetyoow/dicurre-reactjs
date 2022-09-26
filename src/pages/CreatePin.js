@@ -28,37 +28,37 @@ function CreatePin() {
               </div>
             </div>
         </Col>
-        <Col className="px-5 auth-from-wraper d-flex flex-column gap-5">
-            <h3 className="text-start fs-3 fw-bold">Secure Your Account, Your Wallet, <br/> and Your Data With 6 Digits PIN <br/> That You Created Yourself.</h3>
-            <p className="text-start fw-normal text-muted">Create 6 digits pin to secure all your money and your data in <br/> Zwallet app. Keep it secret and don't tell anyone about your <br/> Zwallet account password and the PIN.</p>
+          <Col className="px-5 auth-from-wraper d-flex flex-column gap-5">
+              <h3 className="text-start fs-3 fw-bold">Secure Your Account, Your Wallet, <br/> and Your Data With 6 Digits PIN <br/> That You Created Yourself.</h3>
+              <p className="text-start fw-normal text-muted">Create 6 digits pin to secure all your money and your data in <br/> Zwallet app. Keep it secret and don't tell anyone about your <br/> Zwallet account password and the PIN.</p>
 
-            <div className="d-flex justify-content-center w-auto mx-auto flex-row gap-4 pin-wrap">
-              <div className="d-flex align-items-center pin-border">
-                <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
+              <div className="d-flex justify-content-center w-auto mx-auto flex-row gap-4 pin-wrap">
+                <div className="d-flex align-items-center pin-border">
+                  <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
+                </div>
+                <div className="d-flex align-items-center pin-border">
+                  <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
+                </div>
+                <div className="d-flex align-items-center pin-border">
+                  <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
+                </div>
+                <div className="d-flex align-items-center pin-border">
+                  <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
+                </div>
+                <div className="d-flex align-items-center pin-border">
+                  <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
+                </div>
+                <div className="d-flex align-items-center pin-border">
+                  <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
+                </div>
               </div>
-              <div className="d-flex align-items-center pin-border">
-                <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
-              </div>
-              <div className="d-flex align-items-center pin-border">
-                <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
-              </div>
-              <div className="d-flex align-items-center pin-border">
-                <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
-              </div>
-              <div className="d-flex align-items-center pin-border">
-                <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
-              </div>
-              <div className="d-flex align-items-center pin-border">
-                <input type="text" className="pin-num text-center" maxlength="1" min="0" max="9"/>
-              </div>
-            </div>
 
-            <Link to="/createPinSuccess" className="text-decoration-none">
-              <div className="d-grid mx-auto col-lg-8 mt-5">
-                <button className="btn btn-primary btn-lg fw-bold button-login">Confirm</button>
-              </div>
-            </Link>
-        </Col>
+              <Link to="/createPinSuccess" className="text-decoration-none">
+                <div className="d-grid mx-auto col-lg-8 mt-5">
+                  <button className="btn btn-primary btn-lg fw-bold button-login">Confirm</button>
+                </div>
+              </Link>
+          </Col>
         </Row>
     </>
   )

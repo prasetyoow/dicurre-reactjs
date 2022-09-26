@@ -1,15 +1,15 @@
 import React from "react";
 import {Link} from 'react-router-dom'
 import { Helmet } from "react-helmet";
-import Imgbg from "../assets/img/Mask Group.png";
+import Imgbg from "../assets/img/bgnew.png";
 import Imgph from "../assets/img/png-phone.png"
-import Imgsupp from "../assets/img/phone-icon.png"
+import Imgsupp from "../assets/img/phone-icon.png"  
 import Imgpriv from "../assets/img/lock-icon.png"
 import Imgdl from "../assets/img/dl-icon.png"
 import Imglogo from "../assets/img/logos.png"
 import Imgph2 from "../assets/img/png-phone2.png"
-import Imgsherina from "../assets/img/sherina.jpg"
-import Imgjess from "../assets/img/jessica.png"
+import Imgsherina from "../assets/img/Jessica Keen.png"
+import Imgjess from "../assets/img/jess.png"
 import Imgrobert from "../assets/img/robert.png"
 
 function Home() {
@@ -20,45 +20,43 @@ function Home() {
       <title>Dicurre</title>
     </Helmet>
     <header>
-      
-        <h1 className="top-h1">Zwallet</h1>
-      
-      
+      <div className="head-flex">
+      <h1 className="head-logo-page">Dicurre</h1>  
         <div>
           <Link to="/Login" >
             <button className="login">Login</button>
-          </Link>
-        
-        
+          </Link>   
           <Link to="/Signup" >
             <button className="signup">Sign Up</button>
           </Link>
         </div>
-      </header>
-
-      <div className="container-topleft">
-        <h1 className="h1-topleft">Awesome App For Saving <span>Time.</span></h1>
-        <h3 className="h3-topleft" >We bring you a mobile app for banking problems that oftenly wasting much of your times.</h3>
-        <Link to="/Signup" >
-          <button className="try-free">Try it Free</button>
-        </Link>
+      </div>      
+        <div className="header-lower-flex">
+          <div className="header-left-flex">
+            <h1 className="h1-topleft">Awesome App For <br/> Saving <span>Time.</span></h1>
+            <h3 className="h3-topleft" >We bring you a mobile app for banking problems that <br/> oftenly wasting much of your times.</h3>
+            <Link to="/Signup" >
+              <button className="try-free">Try it Free</button>
+            </Link>
+          </div>
+          <div className="phone">
+            <img src={Imgph} alt="phone"></img>
+          </div> 
         </div>
-    
-    
-    <div className="rectangle">
-      <img src={Imgbg} alt="rectangle"></img>
-    </div>
-
-    <div className="phone">
-      <img src={Imgph} alt="phone"></img>
-    </div>
+          
+        <div>
+        <div className="rectangle">
+          <img src={Imgbg} alt="rectangle"></img>
+        </div>
+        </div>
+      </header>   
     {/* End of Header */}
 
     {/* Start of Main */}
     <main className="container-main">
         <div>
           <h1 className="h1-main"> <span>About</span> the Application.</h1>
-          <h2>We have some great features from the application and it's totally free to use by all users around the world.</h2>  
+          <h2>We have some great features from the application and it's totally free <br/> to use by all users around the world.</h2>  
         </div>
 
         <div className="mini-container">
@@ -88,8 +86,8 @@ function Home() {
       <div className="container-top">
         <div className="content-top">
           <div className="text-top">
-            <h1>100+ <span>Trusted</span> Partners.</h1>
-            <h2>We have reached global level and have 100+ brand partners around the globe.</h2>
+            <h1>100+ <span>Trusted</span> <br/> Partners.</h1>
+            <h2>We have reached global level and have 100+ <br/> brand partners around the globe.</h2>
           </div>
           <div className="logos-top">
             <img src={Imglogo} alt="logos"></img>
@@ -125,44 +123,45 @@ function Home() {
       <div className="container-bottom">
         <div>
           <h1 className="h1-bottom">What Users are <span>Saying.</span></h1>
-          <h2 className="h2-bottom">We have some great features from the application and it's totally free to use by all users around the world</h2>  
+          <h2 className="h2-bottom">We have some great features from the application and it's totally free <br/> to use by all users around the world</h2>  
         </div>
         <div className="bottom-container">
           <div className="testimonials">
             <div className="testi-one">
               <img src={Imgsherina} alt="Testimoni"></img>
               <h1>Sherina Chaw</h1>
-              <h2>“I use this app since 2 years ago and this is the best app that I've ever use in my entire life”</h2>
+              <h2>“I use this app since 2 years ago and <br/> this is the best app that I've ever use <br/> in my entire life”</h2>
             </div>
             <div className="testi-two">
               <img src={Imgjess} alt="Testimoni"></img>
               <h1>Jessica Mera</h1>
-              <h2>“I use Zwallet to manage all financial needs. It's super easy to use and it's 100% free app”</h2>
+              <h2>“I use Dicurre to manage all financial <br/> needs. It's super easy to use and it's <br/> 100% free app”</h2>
             </div>
             <div className="testi-three">
               <img src={Imgrobert} alt="Testimoni"></img>
               <h1>Robert Chandler</h1>
-              <h2>“Since I'm using this app, I'm not going to move to another similar app. Thank you Zwallet!”</h2>
+              <h2>“Since I'm using this app, I'm not <br/> going to move to another similar app. <br/> Thank you Dicurre!”</h2>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    
+    </section>    
     {/* /* End of Section */}
 
     {/* Start of Footer */}
-    <footer className="footer-container">
-        <div className="footer-content">
-        <h1>Zwallet</h1>
-        <h2>Simplify financial needs and saving much time in banking needs with one single app.</h2>
+    <footer>
+      <div className="footer-flex">
+        <h1 className="footer-head">Dicurre</h1>
+        <h4 className="footer-paragraf">Simplify financial needs and saving <br/> much time in banking needs with <br/> one single app.</h4>
         <hr/>
-          <div className="copyright">
-            <h4>2020 Zwallet. All right reserved.</h4>
-            <h4 className="flex">+62 5637 8882 9901</h4>
-            <h4>contact@zwallet.com</h4>
-          </div>
+      </div>
+      <div className="copyright-flex">
+        <h4 className="footer-paragraf">2022 Dicurre. All right reserved.</h4>
+        <div className="contact-flex">
+          <h4 className="footer-paragraf">+62 5637 8882 9901</h4>
+          <h4 className="footer-paragraf">contact@dicurre.com</h4>
         </div>
+      </div>      
     </footer>
     {/* End of Footer */}
     </>
