@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import reducer from "./reducers";
+import thunk from 'redux-thunk';
+import { persistStore } from "redux-persist";
 
 export const store = configureStore({
   reducer,
-  middleware: [logger]
+  middleware: [thunk, logger]
 })
 
-export default store
+export const persistor = persistStore(store);
