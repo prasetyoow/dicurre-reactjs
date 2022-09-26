@@ -9,7 +9,7 @@ function Footer() {
             <span className="fw-bold footer-text">2020 Zwallet. All right reserved.</span>
           </div>
 
-          <div className="d-flex flex-row gap-3">
+          <div className="d-flex flex-row gap-5">
             <span className="fw-bold footer-cont">+62 5637 8882 9901</span>
             <span className="fw-bold footer-cont">contact@zwallet.com</span>
           </div>

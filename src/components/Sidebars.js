@@ -3,21 +3,25 @@ import { Col } from "react-bootstrap"
 import { Link, useNavigate } from 'react-router-dom';
 import {FiGrid, FiArrowUp, FiPlus, FiUser, FiLogOut} from "react-icons/fi"
 
+// redux
+import { useDispatch } from "react-redux"
+import { logout } from "../redux/reducers/auth"
 
 function Sidebars() {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const onLogout = () => {
-    localStorage.removeItem("auth");
-    navigate("/");
+    dispatch(logout())
+    navigate("/Login");
   }
 
   return (
     <>
-    <Col className="col-md-3 d-flex flex-column nav-wrap p-5 m-3">
+    <Col md={3} className="d-flex flex-column nav-wrap p-5 m-3">
             <div className="d-flex flex-column gap-5">
-                  <Link to="/History" className="text-decoration-none text-muted">
+                  <Link to="/Dashboard" className="text-decoration-none text-muted">
                     <div className="d-flex flex-row gap-3 icon-nav">
                       <FiGrid size={24} />
                       <span>Dashboard</span>
