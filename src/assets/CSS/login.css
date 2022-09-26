@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;800&display=swap');
+
+:root {
+  --main-color: #EC9B3B;
+  --main-color-hover: #E0902E;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,7 +13,8 @@ body {
 }
 
 .background-auth {
-  background: url(../img/auth-bg.png);
+  background: url(../img/bgnew.png);
+  background-color: var(--main-color);
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
@@ -38,7 +46,7 @@ body {
 }
 
 .text {
-  color: #6379F4;
+  color: var(--main-color);
 }
 
 .input-login {
@@ -48,18 +56,18 @@ body {
 }
 
 .input-login:focus {
-  border-bottom: 2px solid #6379F4 !important;
+  border-bottom: 2px solid var(--main-color) !important;
   box-shadow: unset !important;
 }
 
 .button-login {
-  background: #6379F4;
+  background: var(--main-color);
   border: unset;
   min-height: 57px;
 }
 
 .button-login:hover {
-  background: #7e8cdf;
+  background: var(--main-color-hover);
 }
 
 .pin-wrap {
@@ -85,7 +93,7 @@ input[type=number] {
 }
 
 .pin-border:valid {
-  border: 2px solid #6379F4;
+  border: 2px solid var(--main-color);
 }
 
 .pin-border input:focus {
