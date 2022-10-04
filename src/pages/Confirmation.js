@@ -2,7 +2,7 @@ import React from "react"
 import { Col, Container} from "react-bootstrap"
 import { Helmet } from "react-helmet"
 import { useNavigate } from "react-router-dom"
-import Imgsam from "../assets/img/samuel.png"
+import profDef from "../assets/img/defaultProfile.png"
 import ConfirmPIN from "../components/Modal"
 import Header from "../components/Header"
 import Sidebars from "../components/Sidebars"
@@ -28,11 +28,10 @@ function Confirmation() {
     .slice('2')
     .replace('.', '')
     .replace('.', '');
-  console.log(slicedMoney);
-  const onSubmit = val => {
-    dispatch(getdate(date));
-    navigate('EnterPIN');
-  };
+  // const onSubmit = val => {
+  //   dispatch(getdate(date));
+  //   navigate(<ConfirmPIN />);
+  // };
   React.useEffect(() => {
     dispatch(resetmsg());
   }, [dispatch]);
@@ -62,12 +61,12 @@ function Confirmation() {
                   <div className="d-flex gap-3 py-4 px-3 my-3 profile-wrap">
                         
                         <div>
-                          <img src={Imgsam} alt="cont-samuel"/>
+                          <img src={profDef} alt="cont-samuel"/>
                         </div>
                         
-                        <div className="d-flex flex-column gap-1">
-                            <span>Samuel Suhi</span>
-                            <span className="text-muted">+62 813-8492-9994</span>
+                        <div className="d-flex flex-column gap-3 my-2">
+                            <span>{name}</span>
+                            <span className="text-muted">{phone}</span>
                         </div>                       
                   </div>
             
@@ -77,26 +76,26 @@ function Confirmation() {
                 
                   <div className="d-flex flex-column gap-2 mx-3 detail-wrap">
                     <span className="text-muted">Amount</span>
-                    <span>Rp.100.000</span>
+                    <span>Rp. {amount}</span>
                   </div>
 
                   <div className="d-flex flex-column gap-2 mx-3 detail-wrap">
                     <span className="text-muted">Balance Left</span>
-                    <span>Rp.20.000</span>
+                    <span>Rp. {slicedMoney - amount}</span>
                   </div>
 
                   <div className="d-flex flex-column gap-2 mx-3 detail-wrap">
                     <span className="text-muted">Date & Time</span>
-                    <span>May 11, 2020 - 12.20</span>
+                    <span>{dateOnly + ' ' + hour}</span>
                   </div>
 
                   <div className="d-flex flex-column gap-2 mx-3 detail-wrap">
                     <span className="text-muted">Notes</span>
-                    <span>For buying some socks</span>
+                    <span>{notes}</span>
                   </div>
 
                   {/* Button Modal */}
-                  <div className="d-grid justify-content-end my-3">
+                  <div className="d-grid justify-content-end py-4">
                     <ConfirmPIN />
                   </div>
 

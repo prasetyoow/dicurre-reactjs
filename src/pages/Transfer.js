@@ -2,7 +2,7 @@ import React from "react"
 import { Col, Container, Form, FormControl, FormGroup, Alert } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { FiEdit2 } from "react-icons/fi"
-import Imgsam from "../assets/img/samuel.png"
+import profDef from "../assets/img/defaultProfile.png"
 import Footer from "../components/Footer"
 import Sidebars from "../components/Sidebars"
 import Header from "../components/Header"
@@ -42,9 +42,8 @@ const AmountValid = ({errors, handleSubmit, handleChange}) => {
       <FormControl name="notes" onChange={handleChange} type="text" className="input-login" placeholder="Add some notes"/>
     </FormGroup>
     
-
     <div className="d-grid justify-content-end">
-      <button className="btn btn-primary btn-lg fw-bold button-login">Continue</button>
+      <button type="submit" className="btn btn-primary btn-lg fw-bold button-login">Continue</button>
     </div>
   </Form>
   )
@@ -67,7 +66,7 @@ function Transfer() {
       if (parseInt(val.amount, 10) < parseInt(slicedMoney, 10)) {
         dispatch(getamount(val.amount));
         dispatch(getnotes(val.notes));
-        navigate('Confirmation');
+        navigate('/Confirmation');
       } else {
         Alert.alert('Balance insufficient');
       }
@@ -94,16 +93,16 @@ function Transfer() {
           <Col md={9} className="d-flex flex-column transfer-wrap">
             <div className="d-flex flex-column py-2 my-2 mx-3">
               <div className="px-3">
-                <span>Transfer Money</span>
+                <span>Transfer To</span>
               </div>
                 
               <Col className="d-flex gap-3 py-4 px-3 my-3 profile-wrap">
                 <div>
-                  <img src={Imgsam} alt="cont-samuel"/>
+                  <img src={profDef} alt="cont-samuel"/>
                 </div>
-                <div className="d-flex flex-column gap-1">
-                  <span>Samuel Suhi</span>
-                  <span className="text-muted">+62 813-8492-9994</span>
+                <div className="d-flex flex-column gap-3 my-2">
+                  <span>{name}</span>
+                  <span className="text-muted">{phone}</span>
                 </div>
               </Col>
 
