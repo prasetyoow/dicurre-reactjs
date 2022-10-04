@@ -2,22 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import http from "../../helpers/http";
 import qs from "qs";
 
-// export const getAllProfile = createAsyncThunk('profile', async () => {
-//   const results = {};
-//   console.log('test masuk')
-//   try {
-//     const {data} = await http().get('/profile');
-//     console.log(data + ' ini data action');
-//     results.data = data.results;
-//     results.page = data.pageInfo;
-//     results.message = data.message;
-//     return results;
-//   } catch (e) {
-//     console.log(e + ' ini error');
-//     return e;
-//   }
-// });
-
 export const getAllProfile = createAsyncThunk('profile', async () => {
   const results = {};
   console.log('test test')
@@ -69,6 +53,23 @@ export const transfer = createAsyncThunk(
       console.log(e.response.data.message);
       results.error = e.response.data.message;
       return results;
+    }
+  },
+);
+
+export const getHistoryTransaction = createAsyncThunk(
+  'auth/historyTransactions',
+  async token => {
+    const results = {};
+    try {
+      const {data} = await http(token).get('auth/historyTransactions');
+      results.data = data.results;
+      results.message = data.message;
+      results.pageInfo = data.pageInfo;
+      return results;
+    } catch (e) {
+      console.log(e);
+      return e;
     }
   },
 );

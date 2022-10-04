@@ -2,28 +2,28 @@ import React from "react"
 import { Col, Container } from "react-bootstrap"
 import {Link} from "react-router-dom"
 import {Helmet} from "react-helmet"
-import {FiArrowUp, FiArrowDown, FiPlus} from "react-icons/fi"
+import {FiArrowUp, FiArrowDown} from "react-icons/fi"
 import Imggraph from "../assets/img/graph.png"
-import Imgsam from "../assets/img/samuel.png"
-import Imgnet from "../assets/img/netflix.png"
-import Imgjes from "../assets/img/jess.png"
-import Imgdob from "../assets/img/adobe.png"
 import Header from "../components/Header"
 import Sidebars from "../components/Sidebars"
 import Footer from "../components/Footer"
 import Bottombars from "../components/Bottombars"
+import TopUpModal from "../components/ModalTopup"
 
 // redux
 import {getUserLogin} from "../redux/asyncActions/profile"
 import { useSelector, useDispatch } from "react-redux"
+import {getHistoryTransaction} from "../redux/asyncActions/transactions"
 
 function Dashboard() {
   const dispatch = useDispatch();
   const profile = useSelector(state => state.profile.data)
   const token = useSelector(state => state.auth.token)
+  const dataHistory = useSelector(state => state.transactions.results);
   React.useEffect(() => {
     dispatch(getUserLogin(token));
-  }, []);
+    dispatch(getHistoryTransaction(token));
+  }, [dispatch, token]);
   return (
     <>
     <Helmet>
@@ -59,12 +59,13 @@ function Dashboard() {
                       </div>
                     </Link>
                           
-                    <Link to="/TopUp" className="text-decoration-none">
+                    {/* <Link to="/TopUp" className="text-decoration-none">
                         <div className="d-flex gap-2 icon-balance">
                           <FiPlus size={24} />
                           <span>Top Up</span>
                         </div>
-                    </Link>
+                    </Link> */}
+                    <TopUpModal />
                   </div>
                 </div>
               </Col>
@@ -94,10 +95,30 @@ function Dashboard() {
              <Col className="p-3 m-2 history-wrap">
                 <div className="d-flex justify-content-between p-2 mt-3">
                     <span className="fw-bold">Transaction History</span>
-                    <span className="text-decoration-none" href="#">See all</span>
+                  <Link to='/history' className="text-decoration-none"><span className="text-muted">See all</span></Link>
                 </div>
 
-                <div className="d-flex align-items-center flex-row p-2 justify-content-between">
+                {/* Mapping data history */}
+
+                {dataHistory?.map(item => {
+                  return (
+                  <div className="d-flex align-items-center flex-row p-2 justify-content-between">
+                    <div className="d-flex flex-row py-2 gap-3">
+                      <img className="image-history" src={'http://192.168.1.10:8787/public/uploads/'+item.penerima_photo} alt="prof-sam"/>
+                      <div className="d-flex flex-column gap-2 mt-1">
+                        <span>{item.penerima_fullname}</span>
+                        <span>{item.tipe_transaksi}</span>
+                      </div>
+                    </div>
+                    <div>
+                      {item.tipe_transaksi === 'Transfer' ? (
+                        <span className="warning">+{item.amount}</span> ) : ( <span className="success">+{item.amount}</span> )}
+                    </div>
+                  </div>
+                  )
+                })}
+
+                {/* <div className="d-flex align-items-center flex-row p-2 justify-content-between">
                   <div className="d-flex flex-row py-2 gap-3">
                       <img className="img-fluid" src={Imgsam} alt="prof-sam"/>
                       <div className="d-flex flex-column">
@@ -147,7 +168,7 @@ function Dashboard() {
                           <div>
                             <span className="warning">-Rp.249.000</span>
                           </div>
-                        </div>
+                        </div> */}
               </Col>              
             </Col>
             {/* End of Graphic */}
