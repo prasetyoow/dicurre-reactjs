@@ -84,6 +84,7 @@ body {
   height: 57px;
   padding-top: 15px;
   padding-left: 30px;
+  cursor: pointer;
 }
 
 .main-wrap {
@@ -96,6 +97,13 @@ body {
   background: #FFFFFF;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 25px;
+}
+
+.image-history {
+  width: 85px;
+  height: 65px;
+  background-blend-mode: normal;
+  border-radius: 10px;
 }
 
 .contact-wrap { 
@@ -141,6 +149,10 @@ body {
 .form-contact {
   background: unset !important;
   border: unset !important;
+}
+
+.map-contact-container {
+  cursor: pointer;
 }
 
 .transfer-wrap {
@@ -207,6 +219,10 @@ body {
   color: var(--main-color);
   border: unset;
   width: 57px;
+}
+
+.modal-topup-container {
+  cursor: pointer;
 }
 
 .topup-wrap {
