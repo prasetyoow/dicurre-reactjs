@@ -12,6 +12,7 @@ const initialState = {
   errorMsg: '',
   successMsg: '',
   getAllProfile: [],
+  pageInfoContact: {},
 };
 
 const transactions = createSlice({
@@ -50,6 +51,7 @@ const transactions = createSlice({
       state.successMsg = null;
     });
     build.addCase(topUp.fulfilled, (state, action) => {
+      state.errorMsg = action.payload.errorMsg;
       state.successMsg = action.payload?.message;
     });
     build.addCase(transfer.pending, state => {
@@ -66,7 +68,7 @@ const transactions = createSlice({
     });
     build.addCase(getAllProfile.fulfilled, (state, action) => {
       state.results = action.payload?.data;
-      // state.totalData = action.payload?.page.totalData;
+      state.pageInfoContact = action.payload?.pageInfo;
     });
     build.addCase(getHistoryTransaction.pending, state => {
       state.errorMsg = null;

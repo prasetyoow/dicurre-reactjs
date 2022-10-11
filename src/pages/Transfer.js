@@ -2,7 +2,6 @@ import React from "react"
 import { Col, Container, Form, FormControl, FormGroup, Alert } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { FiEdit2 } from "react-icons/fi"
-import profDef from "../assets/img/defaultProfile.png"
 import Footer from "../components/Footer"
 import Sidebars from "../components/Sidebars"
 import Header from "../components/Header"
@@ -10,11 +9,12 @@ import { Helmet } from "react-helmet"
 import { Formik } from "formik"
 import * as Yup from "yup"
 import Bottombars from "../components/Bottombars"
+import profDef from "../assets/img/defaultProfile.png"
 
 // redux
 import { useDispatch, useSelector } from "react-redux"
 import { getUserLogin } from "../redux/asyncActions/profile"
-import { getamount, getnotes } from "../redux/reducers/transactions"
+import { getamount, getnotes, getimage, getreceiver } from "../redux/reducers/transactions"
 
 const amountSchema = Yup.object().shape({
   amount: Yup.number().min(20000, "Minimum Transfer is IDR 20.000").max(1000000, "Maximum Transfer is IDR 1.000.000").required("Please fill the amount")
@@ -55,17 +55,17 @@ function Transfer() {
   const token = useSelector(state => state.auth.token);
   const name = useSelector(state => state.transactions.name);
   const phone = useSelector(state => state.transactions.phone);
-  const profile = useSelector(state => state.profile.data);
-  const slicedMoney = profile.balance
-    .slice('2')
-    .replace('.', '')
-    .replace('.', '');
+  const image = useSelector(state => state.transactions.image);
+  const receiver_id = useSelector(state => state.transactions.receiver);
+  console.log(receiver_id)
     const onConfirm = val => {
       console.log(val.amount + 'ini amount');
       console.log(val.notes + 'ini notes');
-      if (parseInt(val.amount, 10) < parseInt(slicedMoney, 10)) {
+      if (parseInt(val.amount, 10)) {
         dispatch(getamount(val.amount));
         dispatch(getnotes(val.notes));
+        dispatch(getimage(image));
+        dispatch(getreceiver(receiver_id));
         navigate('/Confirmation');
       } else {
         Alert.alert('Balance insufficient');
@@ -98,7 +98,7 @@ function Transfer() {
                 
               <Col className="d-flex gap-3 py-4 px-3 my-3 profile-wrap">
                 <div>
-                  <img src={profDef} alt="cont-samuel"/>
+                  <img className="image-history" src={image === null ? profDef : image} alt="prof-contact"/>
                 </div>
                 <div className="d-flex flex-column gap-3 my-2">
                   <span>{name}</span>

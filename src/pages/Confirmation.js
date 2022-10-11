@@ -1,37 +1,30 @@
 import React from "react"
 import { Col, Container} from "react-bootstrap"
 import { Helmet } from "react-helmet"
-import { useNavigate } from "react-router-dom"
-import profDef from "../assets/img/defaultProfile.png"
 import ConfirmPIN from "../components/Modal"
 import Header from "../components/Header"
 import Sidebars from "../components/Sidebars"
 import Footer from "../components/Footer"
+import profDef from "../assets/img/defaultProfile.png"
 
 // redux
 import { useDispatch, useSelector } from "react-redux"
-import {getdate, resetmsg} from '../redux/reducers/transactions'
+import {resetmsg} from '../redux/reducers/transactions'
 
 function Confirmation() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   // const token = useSelector(state => state.auth.token);
   const name = useSelector(state => state.transactions.name);
   const phone = useSelector(state => state.transactions.phone);
   const profile = useSelector(state => state.profile.data);
+  const image = useSelector(state => state.transactions.image);
   const amount = useSelector(state => state.transactions.amount);
   const notes = useSelector(state => state.transactions.notes);
+  const receiver_id = useSelector(state => state.transactions.receiver);
+  console.log(receiver_id)
   const date = new Date().toISOString();
   const dateOnly = date.slice(0, 10);
   const hour = date.slice(11, 16);
-  const slicedMoney = profile.balance
-    .slice('2')
-    .replace('.', '')
-    .replace('.', '');
-  // const onSubmit = val => {
-  //   dispatch(getdate(date));
-  //   navigate(<ConfirmPIN />);
-  // };
   React.useEffect(() => {
     dispatch(resetmsg());
   }, [dispatch]);
@@ -61,7 +54,7 @@ function Confirmation() {
                   <div className="d-flex gap-3 py-4 px-3 my-3 profile-wrap">
                         
                         <div>
-                          <img src={profDef} alt="cont-samuel"/>
+                          <img className="image-history" src={image === null ? profDef : image} alt="prof-contact"/>
                         </div>
                         
                         <div className="d-flex flex-column gap-3 my-2">
@@ -81,7 +74,7 @@ function Confirmation() {
 
                   <div className="d-flex flex-column gap-2 mx-3 detail-wrap">
                     <span className="text-muted">Balance Left</span>
-                    <span>Rp. {slicedMoney - amount}</span>
+                    <span>Rp. {profile.balance - amount}</span>
                   </div>
 
                   <div className="d-flex flex-column gap-2 mx-3 detail-wrap">

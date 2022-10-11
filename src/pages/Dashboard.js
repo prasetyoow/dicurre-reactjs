@@ -9,6 +9,7 @@ import Sidebars from "../components/Sidebars"
 import Footer from "../components/Footer"
 import Bottombars from "../components/Bottombars"
 import TopUpModal from "../components/ModalTopup"
+import profDef from "../assets/img/defaultProfile.png"
 
 // redux
 import {getUserLogin} from "../redux/asyncActions/profile"
@@ -100,11 +101,11 @@ function Dashboard() {
 
                 {/* Mapping data history */}
 
-                {dataHistory?.map(item => {
+                {dataHistory?.map((item, i) => {
                   return (
-                  <div className="d-flex align-items-center flex-row p-2 justify-content-between">
+                  <div key={i} className="d-flex align-items-center flex-row p-2 justify-content-between">
                     <div className="d-flex flex-row py-2 gap-3">
-                      <img className="image-history" src={'http://192.168.1.10:8787/public/uploads/'+item.penerima_photo} alt="prof-sam"/>
+                      <img className="image-history" src={!item.penerima_photo ? profDef : item.penerima_photo} alt="prof-history"/>
                       <div className="d-flex flex-column gap-2 mt-1">
                         <span>{item.penerima_fullname}</span>
                         <span>{item.tipe_transaksi}</span>
@@ -112,7 +113,7 @@ function Dashboard() {
                     </div>
                     <div>
                       {item.tipe_transaksi === 'Transfer' ? (
-                        <span className="warning">+{item.amount}</span> ) : ( <span className="success">+{item.amount}</span> )}
+                        <span className="warning">-{item.amount}</span> ) : ( <span className="success">+{item.amount}</span> )}
                     </div>
                   </div>
                   )
