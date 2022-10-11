@@ -14,9 +14,6 @@ const topUpSchema = Yup.object().shape({
 })
 
 const TopUpValid = ({errors, handleSubmit, handleChange}) =>  {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   return (
     <>
       <Form noValidate onSubmit={handleSubmit} className="d-flex flex-column gap-5">
@@ -26,7 +23,7 @@ const TopUpValid = ({errors, handleSubmit, handleChange}) =>  {
         </Form.Group>
 
         <div className="d-grid justify-content-end">
-          <Button type="submit" className="btn btn-primary btn-lg fw-bold button-login" onClick={handleClose}>Submit</Button>
+          <Button type="submit" className="btn btn-primary btn-lg fw-bold button-login">Submit</Button>
         </div>
       </Form>
    
@@ -39,15 +36,14 @@ function TopUpModal() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
-  const [amount, setAmount] = React.useState('');
   const notes = 'Top up';
   const time = new Date();
   const token = useSelector(state => state.auth.token);
   const successMsg = useSelector(state => state.transactions.successMsg);
 
-  const onTopUp = () => {
-    const request = {amount, notes, time};
-    dispatch(topUp(request));
+  const onTopUp = (val) => {
+    const request = {amount: val.amount, notes, time};
+    dispatch(topUp({token, request}));
   }
   React.useEffect(() => {
     if (successMsg) {
