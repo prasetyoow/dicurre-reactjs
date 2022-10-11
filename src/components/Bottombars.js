@@ -22,7 +22,7 @@ function Bottombars() {
         <div className="d-grid nav_menu" id="nav-menu">
             <ul className="d-flex nav-list mx-auto gap-3">
               <li className="nav-item">
-              <Link to="/History" className="text-decoration-none text-muted nav-link d-flex flex-column text-center align-items-center">
+              <Link to="/Dashboard" className="text-decoration-none text-muted nav-link d-flex flex-column text-center align-items-center">
                 <FiGrid size={24} />
                 <span className="nav-name">Dashboard</span>
               </Link>
