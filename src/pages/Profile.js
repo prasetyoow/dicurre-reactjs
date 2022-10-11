@@ -2,12 +2,12 @@ import React from "react"
 import { Col, Container } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import {FiEdit2, FiArrowRight} from "react-icons/fi"
-import profDef from "../assets/img/defaultProfile.png"
 import Sidebars from "../components/Sidebars"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { Helmet } from "react-helmet"
 import Bottombars from "../components/Bottombars"
+import profDef from "../assets/img/defaultProfile.png"
 
 // redux
 import { getUserLogin } from "../redux/asyncActions/profile"
@@ -21,7 +21,7 @@ function Profile() {
   const token = useSelector(state => state.auth.token)
   React.useEffect(() => {
     dispatch(getUserLogin(token));
-  }, []);
+  }, [dispatch, token]);
 
   const onLogout = () => {
     dispatch(logout())
@@ -48,15 +48,7 @@ function Profile() {
 
               <div className="d-flex flex-column gap-2 align-items-center">
                 <div>
-                  <img src={profDef
-                    // profile.picture === null
-                    //   ? require('../assets/img/defaultProfile.png')
-                    //   : {
-                    //       uri:
-                    //         'http://192.168.1.10:8888/public/uploads/' +
-                    //         profile.picture,
-                    //     }
-                  } alt="prof-le"/>
+                  <img className="image-profile" src={profile?.picture === null ? {profDef} : profile?.picture} alt="head-profile"/>
                 </div>
                 <Link to="/PersonalInfo" className="text-decoration-none">
                   <div>
