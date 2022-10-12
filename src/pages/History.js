@@ -5,7 +5,7 @@ import Sidebars from "../components/Sidebars"
 import Footer from "../components/Footer"
 import { Helmet } from "react-helmet"
 import Bottombars from "../components/Bottombars"
-import {FiSearch} from "react-icons/fi"
+import {FiArrowUp, FiArrowDown} from "react-icons/fi"
 
 // redux
 import { useSelector, useDispatch } from "react-redux"
@@ -13,11 +13,31 @@ import {getHistoryTransaction} from "../redux/asyncActions/transactions"
 
 function History() {
   const dispatch = useDispatch();
+  const [sort, setSort] = React.useState('DESC');
+  const [page, setPage] = React.useState(1)
   const token = useSelector(state => state.auth.token)
   const dataHistory = useSelector(state => state.transactions.results);
+  const pageInfo = useSelector(state => state.transactions?.pageInfoHistory);
+
+  const onAsc = () => {
+    setSort('ASC');
+  };
+
+  const onDesc = () => {
+    setSort('DESC');
+  };
+
+  const onPrevPage = () => {
+    setPage(pageInfo?.prevPage);
+  }
+
+  const onNextPage = () => {
+    setPage(pageInfo?.nextPage);
+  } 
+
   React.useEffect(() => {
-    dispatch(getHistoryTransaction(token));
-  }, [dispatch, token]);
+    dispatch(getHistoryTransaction({token, param: {limit: 5, page: page, sortType: sort}}));
+  }, [dispatch, token, page, sort]);
   return (
     <>
     <Helmet>
@@ -39,19 +59,23 @@ function History() {
                   <span className="fw-bold">Transaction History</span>
                 </div>
 
-                <div className="input-group flex-nowrap search-cont">
-                  <span className="input-group-text form-contact"><FiSearch size={24} /></span>
-                  <input type="text" className="form-control form-contact" placeholder="Search history transactions"/>
+                <div className="d-flex flex-row justify-content-between">
+                  <div className="filterContainer" onClick={() => onAsc()} disabled={sort === 'ASC'}>
+                    <FiArrowUp className="iconFilter" size={30} color="#FF5B37" />
+                  </div>
+                  <div className="filterContainer" onClick={() => onDesc()} disabled={sort === 'DESC'}>
+                    <FiArrowDown className="iconFilter" size={30} color="#1EC15F" />
+                  </div>                 
                 </div>
 
                 {/* mapping data history */}
 
-                {dataHistory?.map(item => {
+                {dataHistory?.map((item, i) => {
                   return (
-                  <div className="d-flex flex-column py-2">
+                  <div key={i} className="d-flex flex-column py-2">
                     <div className="d-flex align-items-center flex-row p-2 justify-content-between">
                       <div className="d-flex flex-row py-2 gap-4">
-                        <img className="image-history" src={'http://192.168.1.10:8787/public/uploads/'+item.penerima_photo} alt="prof-receiver"/>
+                        <img className="image-history" src={item.penerima_photo} alt="prof-receiver"/>
                       <div className="d-flex flex-column gap-2 mt-1">
                       <span>{item.penerima_fullname}</span>
                       <span className="text-muted">{item.tipe_transaksi}</span>
@@ -60,53 +84,18 @@ function History() {
 
                   <div>
                     {item.tipe_transaksi === 'Transfer' ? (
-                      <span className="warning">+{item.amount}</span> ) : ( <span className="success">+{item.amount}</span> )}
+                      <span className="warning">-Rp. {item.amount}</span> ) : ( <span className="success">+Rp. {item.amount}</span> )}
                   </div>
                 </div>
               </div>
               )
                 })}
-
-            {/* <div className="d-flex align-items-center flex-row p-2 justify-content-between">
-              <div className="d-flex flex-row py-2 gap-3">
-                <img className="img-fluid" src={Imgnet} alt="netflix"/>
-                <div className="d-flex flex-column">
-                  <span className="trans-name">Netflix</span>
-                  <span>Subcription</span>
-                </div>
-              </div>
-              <div>
-                <span className="warning">-Rp.149.000</span>
-              </div>
-            </div>
-
-            <div className="d-flex flex-column gap-3">
-              <div className="d-flex align-items-center flex-row p-2 justify-content-between">
-                <div className="d-flex flex-row py-2 gap-3">
-                  <img className="img-fluid" src={Imgjess} alt="prof-jes"/>
-                  <div className="d-flex flex-column">
-                    <span className="trans-name">Christine Mar...</span>
-                    <span>Transfer</span>
-                  </div>
-                </div>
-                <div>
-                  <span className="success">+Rp.50.000</span>
-                </div>
-              </div>
               
-              
-              <div className="d-flex align-items-center flex-row p-2 justify-content-between">
-                <div className="d-flex flex-row py-2 gap-3">
-                  <img className="img-fluid" src={Imgdob} alt="adobe"/>
-                  <div className="d-flex flex-column">
-                    <span className="trans-name">Adobe Inc.</span>
-                    <span>Subcription</span>
-                  </div>
-                </div>
-                <div>
-                  <span className="warning">-Rp.249.000</span>
-                </div>
-              </div> */}
+              <div className="d-flex flex-row justify-content-between mx-3 mb-3">
+                <button className="btn btn-primary btn-lg fw-bold button-login" disabled={pageInfo?.currentPage === 1} onClick={() => onPrevPage()}>Prev</button>
+                <h4 className="mt-3">{pageInfo?.currentPage}</h4>
+                <button className="btn btn-primary btn-lg fw-bold button-login" disabled={pageInfo?.nextPage === null} onClick={() => onNextPage()}>Next</button>
+              </div>
           </Col>
       {/* End of Trans History */}
         </Container>

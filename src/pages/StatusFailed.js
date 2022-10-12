@@ -2,14 +2,26 @@ import React from "react"
 import { Col, Container } from "react-bootstrap"
 import {Link} from "react-router-dom"
 import {FiX} from "react-icons/fi"
-import Imgsam from "../assets/img/samuel.png"
 import Footer from "../components/Footer"
 import Sidebars from "../components/Sidebars"
 import Header from "../components/Header"
 import { Helmet } from "react-helmet"
 import Bottombars from "../components/Bottombars"
+import profDef from '../assets/img/defaultProfile.png'
+
+// redux
+import { useSelector } from "react-redux"
 
 function StatusFailed() {
+  const name = useSelector(state => state.transactions.name)
+  const phone = useSelector(state => state.transactions.phone);
+  const profile = useSelector(state => state.profile.data);
+  const image = useSelector(state => state.transactions.image);
+  const amount = useSelector(state => state.transactions.amount);
+  const notes = useSelector(state => state.transactions.notes);
+  const date = new Date().toISOString();
+  const dateOnly = date.slice(0, 10);
+  const hour = date.slice(11, 16);
   return (
     <>
     <Helmet>
@@ -27,61 +39,61 @@ function StatusFailed() {
           {/* End of Sidebars */}
           <Bottombars />
           {/* Start of Contents */}
-          <Col md={9} class="d-flex flex-column transfer-wrap">
-            <div class="d-flex flex-column transfer-wrap">
-              <div class="d-flex flex-column py-2 my-1 mx-3">
-                <div class="d-flex flex-column gap-3 align-items-center">
+          <Col md={9} className="d-flex flex-column transfer-wrap">
+            <div className="d-flex flex-column transfer-wrap">
+              <div className="d-flex flex-column py-2 my-1 mx-3">
+                <div className="d-flex flex-column gap-3 align-items-center">
               
                   <div className="d-flex justify-content-center align-items-center danger-wrap">
                     <FiX size={50} className="text-muted"/>
                   </div>
                   
                   <div>
-                    <span class="fw-bold">Transfer Failed</span>
+                    <span className="fw-bold">Transfer Failed</span>
                   </div>
                   <div>
-                    <span class="text-muted text-align-center">We can't transfer your money at the moment, we recommend you to check your <br/> internet connection and try again.</span>
+                    <span className="text-muted text-align-center">We can't transfer your money at the moment, we recommend you to check your <br/> internet connection and try again.</span>
                   </div>
                 </div>
               
-                <div class="d-flex flex-column gap-2 mx-3 detail-wrap">
-                  <span class="text-muted">Amount</span>
-                  <span>Rp.100.000</span>
+                <div className="d-flex flex-column gap-2 mx-3 detail-wrap">
+                  <span className="text-muted">Amount</span>
+                  <span>Rp. {amount}</span>
                 </div>
 
-                <div class="d-flex flex-column gap-2 mx-3 detail-wrap">
-                  <span class="text-muted">Balance Left</span>
-                  <span>Rp.20.000</span>
+                <div className="d-flex flex-column gap-2 mx-3 detail-wrap">
+                  <span className="text-muted">Balance Left</span>
+                  <span>Rp. {profile.balance}</span>
                 </div>
 
-                <div class="d-flex flex-column gap-2 mx-3 detail-wrap">
-                  <span class="text-muted">Date & Time</span>
-                  <span>May 11, 2020 - 12.20</span>
+                <div className="d-flex flex-column gap-2 mx-3 detail-wrap">
+                  <span className="text-muted">Date & Time</span>
+                  <span>{dateOnly + ' ' + hour}</span>
                 </div>
 
-                <div class="d-flex flex-column gap-2 mx-3 detail-wrap">
-                  <span class="text-muted">Notes</span>
-                  <span>For buying some socks</span>
+                <div className="d-flex flex-column gap-2 mx-3 detail-wrap">
+                  <span className="text-muted">Notes</span>
+                  <span>{notes}</span>
                 </div>
 
-                <div class="px-3 my-3">
+                <div className="px-3 my-4">
                   <span>Transfer To</span>
                 </div>
-                  <div class="d-flex gap-3 py-4 px-3 my-3 profile-wrap">
+                  <div className="d-flex gap-3 py-3 px-3 profile-wrap">
                       <div>
-                          <img src={Imgsam} alt="cont-samuel" />
+                          <img className="image-history" src={image === null ? profDef : image} alt="cont-samuel" />
                       </div>
-                      <div class="d-flex flex-column gap-1">
-                          <span>Samuel Suhi</span>
-                          <span class="text-muted">+62 813-8492-9994</span>
+                      <div className="d-flex flex-column gap-1">
+                          <span>{name}</span>
+                          <span className="text-muted">{phone}</span>
                       </div>
                   </div>
                 
                   <div>
-                    <div class="d-flex flex-row justify-content-end gap-3 button-wrap">
+                    <div className="d-flex flex-row justify-content-end gap-3 button-wrap">
                       <Link to="/Dashboard" className="text-decoration-none">
                         <div>
-                          <button class="btn btn-primary btn-lg fw-bold button-success">Try Again</button>
+                          <button className="btn btn-primary btn-lg fw-bold button-success">Try Again</button>
                         </div>
                       </Link>
                     

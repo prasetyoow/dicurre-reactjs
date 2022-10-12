@@ -23,7 +23,7 @@ function Dashboard() {
   const dataHistory = useSelector(state => state.transactions.results);
   React.useEffect(() => {
     dispatch(getUserLogin(token));
-    dispatch(getHistoryTransaction(token));
+    dispatch(getHistoryTransaction({token, param: {limit: 5, page: 1, sortType: 'DESC'}}));
   }, [dispatch, token]);
   return (
     <>
@@ -48,8 +48,8 @@ function Dashboard() {
                <div className="d-flex flex-row justify-content-between align-items-center p-3 m-4 balance-wrap">
                   <div className="d-flex flex-column gap-1 p-3">
                      <span className="fw-normal balance-text">Balance</span>
-                     <span className="fs-1 fw-bold balance-num">{profile.balance}</span>
-                     <span className="balance-text">{profile.phone_number}</span>
+                     <span className="fs-1 fw-bold balance-num">{profile.balance === null ? "-" : profile.balance}</span>
+                     <span className="balance-text">{profile.phone_number === null ? "-" : profile.phone_number}</span>
                   </div>
 
                   <div className="d-flex flex-column gap-3">
@@ -59,13 +59,6 @@ function Dashboard() {
                         <span>Transfer</span>
                       </div>
                     </Link>
-                          
-                    {/* <Link to="/TopUp" className="text-decoration-none">
-                        <div className="d-flex gap-2 icon-balance">
-                          <FiPlus size={24} />
-                          <span>Top Up</span>
-                        </div>
-                    </Link> */}
                     <TopUpModal />
                   </div>
                 </div>
@@ -113,63 +106,11 @@ function Dashboard() {
                     </div>
                     <div>
                       {item.tipe_transaksi === 'Transfer' ? (
-                        <span className="warning">-{item.amount}</span> ) : ( <span className="success">+{item.amount}</span> )}
+                        <span className="warning">-Rp. {item.amount}</span> ) : ( <span className="success">+Rp. {item.amount}</span> )}
                     </div>
                   </div>
                   )
                 })}
-
-                {/* <div className="d-flex align-items-center flex-row p-2 justify-content-between">
-                  <div className="d-flex flex-row py-2 gap-3">
-                      <img className="img-fluid" src={Imgsam} alt="prof-sam"/>
-                      <div className="d-flex flex-column">
-                        <span className="trans-name">Samuel Sushi</span>
-                        <span>Transfer</span>
-                      </div>
-                  </div>
-                    <div>
-                      <span className="success">+Rp.50.000</span>
-                    </div>
-                </div>
-
-                    <div className="d-flex align-items-center flex-row p-2 justify-content-between">
-                      <div className="d-flex flex-row py-2 gap-3">
-                        <img className="img-fluid" src={Imgnet} alt="netflix"/>
-                        <div className="d-flex flex-column">
-                          <span className="trans-name">Netflix</span>
-                          <span>Subcription</span>
-                        </div>
-                      </div>
-                      <div>
-                        <span className="warning">-Rp.149.000</span>
-                      </div>
-                    </div>
-
-                      <div className="d-flex align-items-center flex-row p-2 justify-content-between">
-                        <div className="d-flex flex-row py-2 gap-3">
-                          <img className="img-fluid" src={Imgjes} alt="prof-jes"/>
-                          <div className="d-flex flex-column">
-                            <span className="trans-name">Christine Mar...</span>
-                            <span>Transfer</span>
-                          </div>
-                        </div>
-                        <div>
-                          <span className="success">+Rp.150.000</span>
-                        </div>
-                      </div>
-                      
-                        <div className="d-flex align-items-center flex-row p-2 justify-content-between">
-                          <div className="d-flex flex-row py-2 gap-3">
-                            <img className="img-fluid" src={Imgdob} alt="adobe"/>
-                            <div className="d-flex flex-column">
-                              <span className="trans-name">Adobe Inc.</span>
-                              <span>Subcription</span>
-                            </div>
-                          </div>
-                          <div>
-                            <span className="warning">-Rp.249.000</span>
-                          </div>
-                        </div> */}
               </Col>              
             </Col>
             {/* End of Graphic */}
