@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {getUserLogin} from '../asyncActions/profile';
+import {getUserLogin, editProfile, editPhoneNumber} from '../asyncActions/profile';
 
 const initialState = {
   data: [],
@@ -23,6 +23,24 @@ export const profile = createSlice({
     });
     build.addCase(getUserLogin.fulfilled, (state, action) => {
       state.data = action.payload.data;
+    });
+    build.addCase(editProfile.pending, state => {
+      state.errorMsg = null;
+      state.successMsg = null;
+    });
+    build.addCase(editProfile.fulfilled, (state, action) => {
+      state.data.fullname = action.payload?.data.fullname;
+      state.errorMsg = action.payload.errorMsg;
+      state.successMsg = action.payload.message;
+    });
+    build.addCase(editPhoneNumber.pending, state => {
+      state.errorMsg = null;
+      state.successMsg = null;
+    });
+    build.addCase(editPhoneNumber.fulfilled, (state, action) => {
+      state.data.phone_number = action.payload?.data.phone_number;
+      state.errorMsg = action.payload.errorMsg;
+      state.successMsg = action.payload.message;
     });
   },
 });

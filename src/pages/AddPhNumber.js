@@ -1,12 +1,40 @@
 import React from "react"
 import { Col, Container } from "react-bootstrap"
-import {Link} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import { Helmet } from "react-helmet"
 import Header from "../components/Header"
 import Sidebars from "../components/Sidebars"
 import Footer from "../components/Footer"
+import {useDispatch, useSelector} from 'react-redux';
+import qs from 'qs';
+
+// redux
+import { resetMsg } from "../redux/reducers/profile"
+import { editPhoneNumber } from "../redux/asyncActions/profile"
 
 function AddPhNumber() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [phone, setPhone] = React.useState('');
+  const token = useSelector(state => state.auth.token);
+  const successMsg = useSelector(state => state.profile.successMsg);
+
+  const onChangePhone = () => {
+    dispatch(resetMsg);
+    const request = {token: token, phone_number: phone};
+    console.log(qs.stringify(request) + ' dari page');
+    dispatch(editPhoneNumber(request));
+    if (successMsg) {
+      navigate('/Profile');
+    }
+  };
+
+  React.useEffect(() => {
+    dispatch(resetMsg);
+    if (successMsg) {
+      navigate('/Profile');
+    }
+  }, [dispatch, successMsg, navigate]);
   return (
     <>
     <Helmet>
@@ -39,16 +67,14 @@ function AddPhNumber() {
                       <i data-feather="phone"></i>
                       <span className="fw-bold text-muted px-2">+62</span>
                     </span>
-                    <input type="number" className="form-control input-change" placeholder="Enter your phone number"/>
+                    <input type="number" className="form-control input-change" defaultValue={phone} onChange={setPhone} placeholder="Enter your phone number"/>
                   </div>
                 </div>
-
-                <Link to="/ManagePhNumber" className="text-decoration-none">
-                  <div className="d-grid m-5">
-                    <button className="btn btn-primary btn-lg fw-bold button-change">Add Phone Number</button>
-                  </div>
-                </Link>
-                
+        
+                <div className="d-grid m-5">
+                  <button type="submit" onSubmit={onChangePhone} className="btn btn-primary btn-lg fw-bold button-change">Add Phone Number</button>
+                </div>
+                           
               </div>
             </div>
           </Col>
