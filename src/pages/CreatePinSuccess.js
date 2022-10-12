@@ -25,7 +25,7 @@ function CreatePinSucess() {
           <div className="d-flex flex-column align-items-center">
               <div>
                   <div className="d-flex justify-content-start">
-                    <span className="fs-2 fw-bold logo-mobile">Zwallet</span>
+                    <span className="fs-2 fw-bold logo-mobile">Dicurre</span>
                   </div>
                   <div className="bg-phone">
                     <img src={Imgdb} alt="phone-db" />
@@ -34,7 +34,7 @@ function CreatePinSucess() {
 
               <div className ="d-flex flex-column gap-5 text-content">
                 <span className ="fs-3 fw-bold bg-phone">App that Covering Banking Needs.</span>
-                <p className ="fw-normal bg-phone">Zwallet is an application that focussing in banking needs for all users <br/> in the world. Always updated and always following world trends. <br/> 5000+ users registered in Zwallet everyday with worldwide <br/> users coverage. </p>
+                <p className ="fw-normal bg-phone">Dicurre is an application that focussing in banking needs for all users <br/> in the world. Always updated and always following world trends. <br/> 5000+ users registered in Dicurre everyday with worldwide <br/> users coverage. </p>
               </div>
             </div>
         </Col>
@@ -43,7 +43,7 @@ function CreatePinSucess() {
             <FiCheck size={50} className="text-muted"/>
           </div>
           <h3 className="text-start fs-3 fw-bold">Your PIN Was Successfully Created</h3>
-          <p className="text-start fw-normal text-muted">Your PIN was successfully created and you can now access <br/> all the features in Zwallet. Login to your new account and <br/> start exploring!</p>
+          <p className="text-start fw-normal text-muted">Your PIN was successfully created and you can now access <br/> all the features in Dicurre. Login to your new account and <br/> start exploring!</p>
 
           <Link to="/Dashboard" className="text-decoration-none">
             <div className="d-grid mt-5">
