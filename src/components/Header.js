@@ -29,13 +29,13 @@ function Header() {
             <div className="d-flex align-items-center justify-content-end p-5">
                <Link to="/Profile" className="text-decoration-none text-muted">
                  <div className="profile-head">
-                   <Image className="header-prof-pict" src={profile?.picture === null ? {profDef} : profile?.picture} alt="head-profile"/>
+                   <Image className="header-prof-pict" src={profile?.picture === null ? profDef : profile?.picture} alt="head-profile"/>
                  </div>
                </Link>
               
                <div className="d-flex flex-column head-wrap">
-                  <span className="fw-bold">{profile.fullname}</span>
-                  <span className="fw-normal prof-num">{profile.phone_number}</span>
+                  <span className="fw-bold">{profile.fullname === null ? "-" : profile.fullname}</span>
+                  <span className="fw-normal prof-num">{profile.phone_number === null ? "-" : profile.phone_number}</span>
                </div>
               
               <div>
