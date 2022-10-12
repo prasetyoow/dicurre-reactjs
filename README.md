@@ -4,6 +4,14 @@
 
  A website for transfering money to anyone you connected. The website is made using React.js as a framework and CSS/Bootstrap for the styling
 
+ ## **Screenshoots**
+ ![LandingPage](https://github.com/prasetyoow/dicurre-reactjs/blob/master/screenshoot/landingpage.png)
+ ![Login](https://github.com/prasetyoow/dicurre-reactjs/blob/master/screenshoot/login.png)
+ ![Dashboard](https://github.com/prasetyoow/dicurre-reactjs/blob/master/screenshoot/dashboard.png)
+ ![Profile](https://github.com/prasetyoow/dicurre-reactjs/blob/master/screenshoot/profile.png)
+ ![Topup](https://github.com/prasetyoow/dicurre-reactjs/blob/master/screenshoot/topup.png)
+ ![Transfer](https://github.com/prasetyoow/dicurre-reactjs/blob/master/screenshoot/transfer.png)
+
 ## **Features**
 
  * Login
