@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import {Form, Alert} from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/CSS/dashboard.css'
 import '../assets/CSS/login.css'
 import '../assets/CSS/style.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 // redux
@@ -28,14 +28,11 @@ function ConfirmPIN() {
   const image = useSelector(state => state.transactions.image);
   const notes = useSelector(state => state.transactions.notes);
   const receiver_id = useSelector(state => state.transactions.receiver);
-  console.log(receiver_id)
   const time = new Date();
-  console.log(time)
   const type_id = 1;
 
   const onChangePin = value => {
     value.preventDefault();
-    // setPin(value.target.value)
     const pin = `${value.target.pin1.value}${value.target.pin2.value}${value.target.pin3.value}${value.target.pin4.value}${value.target.pin5.value}${value.target.pin6.value}`
     console.log(pin)
     const request = {
@@ -67,14 +64,14 @@ function ConfirmPIN() {
         Confirm
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header closeButton>
           <Modal.Title>Confirmation PIN</Modal.Title>
         </Modal.Header>
         <Modal.Body>
          
-            <Form noValidate onSubmit={onChangePin} className="d-flex flex-column justify-content-center pt-5 m-5 pin-wrap" >
-              <div className="d-flex flex-row gap-2">
+            <Form noValidate onSubmit={onChangePin} className="d-flex flex-column justify-content-center" >
+              <div className="d-flex flex-row justify-content-center gap-3">
                 <div className="d-flex align-items-center pin-border">
                   <input name="pin1" type="number" className="pin-num text-center" maxLength="1" min="0" max="9" />
                 </div>
@@ -99,13 +96,9 @@ function ConfirmPIN() {
                 </div>
               </div>        
 
-              <div className="d-flex mt-4 justify-content-end">
-                
+              <div className="d-flex mt-4 justify-content-end gap-2">               
                   <Button variant="danger" onClick={handleClose}>Cancel</Button>
-                
-                
-                  <Button variant="success" type="submit">Confirm</Button>
-                     
+                  <Button variant="success" type="submit">Confirm</Button>                    
               </div>   
             </Form>           
         </Modal.Body>

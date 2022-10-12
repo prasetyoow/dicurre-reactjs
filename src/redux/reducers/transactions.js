@@ -76,7 +76,7 @@ const transactions = createSlice({
     })
     build.addCase(getHistoryTransaction.fulfilled, (state, action) => {
       state.results = action.payload?.data;
-      state.pageInfo = action.payload?.pageInfo;
+      state.pageInfoHistory = action.payload?.pageInfoHistory;
     });
   },
 });
