@@ -8,6 +8,7 @@ import * as Yup from "yup"
 import { Helmet } from "react-helmet"
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../redux/asyncActions/auth"
+import {setEmail} from "../redux/reducers/auth"
 
 const signUpSchema = Yup.object().shape({
   username: Yup.string().min(6).required('Required'),
@@ -23,7 +24,7 @@ const AuthValid = ({errors, handleSubmit, handleChange}) => {
 
   React.useEffect(() => {
     if (successMsg) {
-      navigate("/Login", { state: { successMsg } });
+      navigate("/CreatePin", { state: { successMsg } });
     }
   }, [navigate, successMsg]);
 
@@ -55,7 +56,7 @@ const AuthValid = ({errors, handleSubmit, handleChange}) => {
         </Form.Group>
 
         <div className="d-grid mt-5">
-              <button className="btn btn-primary btn-lg fw-bold button-login">Sign Up</button>
+              <button type="submit" className="btn btn-primary btn-lg fw-bold button-login">Sign Up</button>
         </div>
 
         {/* <div className="text-center">
@@ -67,29 +68,20 @@ const AuthValid = ({errors, handleSubmit, handleChange}) => {
 } 
 
 function Signup () {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const token = useSelector((state) => state.auth.token);
- 
-  // const signUpReq = (user) => {
-  //   if (user.email === '' && user.username === '' && user.password === '') {
-  //     window.alert('Please fill the form correctly')
-  //   } else {
-  //     navigate('/CreatePIN')
-  //   }
-  // }
+  const token = useSelector(state => state.auth.token);
 
   const onRegister = (value) => {
     dispatch(register(value));
-    navigate('/Dashboard')
+    dispatch(setEmail(value.email))
   };
 
   React.useEffect(() => {
-    // if (token) {
-    //   navigate("/Dashboard");
-    // }
-  }, []);
+    if (token) {
+      navigate("/Dashboard");
+    }
+  }, [dispatch, token, navigate]);
 
   return (
     <>
@@ -118,37 +110,9 @@ function Signup () {
           <h3 className="text-start fs-3 fw-bold">Start Accessing Banking Needs <br/> With All Devices and All Platforms <br/> With 30.000+ Users</h3>
           <p className="text-start fw-normal text-muted">Transfering money is eassier than ever, you can access <br/> Zwallet wherever you are Desktop, laptop, mobile phone? <br/> we cover all of that for you!</p>
 
-          {/* <div className="input-group flex-nowrap">
-            <span className="input-group-text icon-login">
-              <FiUser size={24} />
-            </span>
-            <input type="text" className="form-control input-login" placeholder="Enter your username"/>
-          </div>
-
-          <div className="input-group flex-nowrap">
-            <span className="input-group-text icon-login">
-              <FiMail size={24}  />
-            </span>
-            <input type="email" className="form-control input-login" placeholder="Enter your e-mail"/>
-          </div>
-
-          <div className="input-group flex-nowrap">
-            <span className="input-group-text icon-login">
-              <FiLock size={24} />
-            </span>
-            <input type="password" className="form-control input-login" placeholder="Enter your password"/>
-          </div> */}
-
           <Formik initialValues={{username: '', email: '', password: ''}} validationSchema={signUpSchema} onSubmit={onRegister}>
             {(props) =><AuthValid {...props} />}
           </Formik>
-
-          {/* <Link to="/CreatePin" className="text-decoration-none"> */}
-            {/* <div className="d-grid mt-5">
-              <button className="btn btn-primary btn-lg fw-bold button-login">Sign Up</button>
-            </div> */}
-          {/* </Link> */}
-          
 
           <div className="text-center">
             Don't have an account? Let's <Link to="/Login" className="fw-bold text-decoration-none text">Login</Link>
