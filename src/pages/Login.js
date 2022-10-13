@@ -56,7 +56,7 @@ const AuthValid = ({errors, handleSubmit, handleChange}) => {
 
 function Login() {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.auth.token);
+  const token = useSelector(state => state.auth.token);
   const navigate = useNavigate();
   
   const onLogin = (value) => {
@@ -97,38 +97,9 @@ function Login() {
           <h3 className ="text-start fs-3 fw-bold">Start Accessing Banking Needs <br/> With All Devices and All Platforms <br/> With 30.000+ Users</h3>
           <p className ="text-start fw-normal text-muted">Transfering money is eassier than ever, you can access <br/> Dicurre wherever you are Desktop, laptop, mobile phone? <br/> we cover all of that for you!</p>
 
-          {/* <div className ="input-group flex-nowrap">
-            <span className ="input-group-text icon-login">
-              <FiMail size={24}  />
-            </span>
-            <input type="email" className ="form-control input-login" placeholder="Enter your e-mail" />
-          </div>
-
-          <div className ="input-group flex-nowrap">
-            <span className ="input-group-text icon-login">
-              <FiLock size={24} />
-            </span>
-            <input type="password" className ="form-control input-login" placeholder="Enter your password" />
-          </div> */}
-
           <Formik initialValues={{email: '', password: ''}} validationSchema={loginSchema} onSubmit={onLogin}>
             {(props) =><AuthValid {...props} />}
           </Formik>
-          
-          {/* <div className ="text-end">
-            <Link to="/ForgotPassword" className ="link-dark text-decoration-none">Forgot Password?</Link>
-          </div>  */}
-
-          {/* <Link to="/Dashboard" className ="text-decoration-none"> 
-            <div className ="d-grid mt-5">
-              <button className ="btn btn-primary btn-lg fw-bold button-login">Login</button>
-            </div>
-          </Link> */}
-          
-
-          {/* <div className ="text-center">
-            Don't have an account? Let's <Link to="/Signup" className ="fw-bold text-decoration-none text">Sign up</Link>
-          </div> */}
 
         </Col>
       </Row>

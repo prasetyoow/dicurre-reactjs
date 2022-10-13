@@ -1,18 +1,17 @@
 import React from 'react';
 import { Container, Nav } from "react-bootstrap"
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {FiGrid, FiArrowUp, FiPlus, FiUser, FiLogOut} from "react-icons/fi"
 import { useDispatch } from "react-redux"
 import { logout } from "../redux/reducers/auth"
 
 function Bottombars() {
 
-  const navigate = useNavigate();
   const dispatch = useDispatch()
 
   const onLogout = () => {
     dispatch(logout())
-    navigate("/Login");
+    // navigate("/Login");
   }
 
   return (
