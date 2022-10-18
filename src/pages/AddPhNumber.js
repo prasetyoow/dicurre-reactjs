@@ -19,23 +19,26 @@ function AddPhNumber() {
   const token = useSelector(state => state.auth.token);
   const successMsg = useSelector(state => state.profile.successMsg);
 
+
   const onChangePhone = () => {
     dispatch(resetMsg);
     const request = {token: token, phone_number: phone};
+    console.log(phone);
+    console.log(request);
     console.log(qs.stringify(request) + ' dari page');
     dispatch(editPhoneNumber(request));
-    if (successMsg) {
-      navigate('/Profile');
-    }
+    
   };
 
-  // React.useEffect(() => {
-  //   dispatch(resetMsg);
-  // }, [dispatch, successMsg, navigate]);
+  React.useEffect(() => {
+      if (successMsg) {
+        navigate('/Profile');
+      }
+  }, [dispatch, successMsg, navigate]);
   return (
     <>
     <Helmet>
-      <title>Add Phone Number</title>
+      <title>Edit Phone Number</title>
     </Helmet>
     {/* Start of Header */}
     <Header />
@@ -50,11 +53,11 @@ function AddPhNumber() {
           <Col className="d-flex flex-column transfer-wrap">
             <div className="d-flex flex-column py-2 my-2 mx-3">
               <div className="px-3">
-                <span>Add Phone Number</span>
+                <span>Add or edit phone number</span>
               </div>
           
               <div className="py-4 px-3">
-                  <span className="text-muted">Add at least one phone number for the transfer <br/> ID so you can start transfering your money to <br/>another user.</span>
+                  <span className="text-muted">Add at least one or change phone number for the transfer <br/> ID so you can start transfering your money to <br/>another user.</span>
               </div>
               
               <div className="d-flex flex-column p-5 m-5">
@@ -69,7 +72,7 @@ function AddPhNumber() {
                 </div>
         
                 <div className="d-grid m-5">
-                  <button type="submit" onSubmit={onChangePhone} className="btn btn-primary btn-lg fw-bold button-change">Add Phone Number</button>
+                  <button type="submit" onClick={onChangePhone} className="btn btn-primary btn-lg fw-bold button-change">Edit phone number</button>
                 </div>
                            
               </div>

@@ -48,9 +48,17 @@ function PersonalInfo() {
                 </div>
               
                 <div className="d-flex flex-column gap-2 mx-3 detail-wrap">
-                  <span className="text-muted">First Name</span>
-                  <span>{profile.fullname === null ? '-' : profile.fullname}</span>
+                  <div className="d-flex flex-row justify-content-between">
+                    <div className="d-flex flex-column gap-2">
+                      <span className="text-muted">First Name</span>
+                      <span>{profile.fullname === null ? '-' : profile.fullname}</span>
+                    </div>
+                    <div className="p-2">
+                      <Link to="/EditName" className="text-decoration-none">Manage</Link>
+                    </div> 
+                  </div>
                 </div>
+                
 
                 <div className="d-flex flex-column gap-2 mx-3 detail-wrap">
                   <span className="text-muted">Verified E-mail</span>
@@ -59,12 +67,12 @@ function PersonalInfo() {
 
                 <div className="d-flex flex-column gap-2 mx-3 detail-wrap">
                   <div className="d-flex flex-row justify-content-between">
-                    <div className="d-flex flex-column gap-2 ">
+                    <div className="d-flex flex-column gap-2">
                       <span className="text-muted">Phone Number</span>
                       <span>{profile.phone_number === null ? '-' : profile.phone_number}</span>
                     </div>
 
-                  <div className="p-2 m-2">
+                  <div className="p-2">
                     <Link to="/AddPhNumber" className="text-decoration-none">Manage</Link>
                   </div>
                 </div>
