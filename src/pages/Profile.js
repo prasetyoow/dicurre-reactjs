@@ -8,6 +8,7 @@ import Footer from "../components/Footer"
 import { Helmet } from "react-helmet"
 import Bottombars from "../components/Bottombars"
 import profDef from "../assets/img/defaultProfile.png"
+import EditPicture from "../components/ModalEditImage"
 
 // redux
 import { getUserLogin } from "../redux/asyncActions/profile"
@@ -47,9 +48,10 @@ function Profile() {
             <div className="d-flex flex-column gap-5 py-2 my-2 mx-5">
 
               <div className="d-flex flex-column gap-2 align-items-center">
-                <div>
+                {/* <div>
                   <img className="image-profile" src={profile?.picture === null ? {profDef} : profile?.picture} alt="head-profile"/>
-                </div>
+                </div> */}
+                <EditPicture />
                 <Link to="/PersonalInfo" className="text-decoration-none">
                   <div>
                   <FiEdit2 size={24} className="pencil"/>
