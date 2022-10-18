@@ -21,8 +21,8 @@ function EditPicture() {
 
   return (
     <>
-    <div onClick={handleShow}>
-      <img className="image-profile" src={profile?.picture === null ? {profDef} : profile?.picture} alt="head-profile"/>
+    <div>
+      <img className="image-profile" src={profile?.picture === null ? {profDef} : profile?.picture} alt="head-profile" onClick={handleShow}/>
     </div>
 
     <Modal show={show} onHide={handleClose} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
