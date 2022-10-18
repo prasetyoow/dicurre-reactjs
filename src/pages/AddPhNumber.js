@@ -31,9 +31,6 @@ function AddPhNumber() {
 
   React.useEffect(() => {
     dispatch(resetMsg);
-    if (successMsg) {
-      navigate('/Profile');
-    }
   }, [dispatch, successMsg, navigate]);
   return (
     <>
