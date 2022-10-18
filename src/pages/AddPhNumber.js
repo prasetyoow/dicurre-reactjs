@@ -64,7 +64,7 @@ function AddPhNumber() {
                       <i data-feather="phone"></i>
                       <span className="fw-bold text-muted px-2">+62</span>
                     </span>
-                    <input type="number" className="form-control input-change" defaultValue={phone} onChange={setPhone} placeholder="Enter your phone number"/>
+                    <input type="number" className="form-control input-change" defaultValue={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Enter your phone number"/>
                   </div>
                 </div>
         
