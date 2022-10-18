@@ -20,9 +20,21 @@ function EditPicture() {
   }, [dispatch, token]);
 
   return (
-        <div onClick={handleShow}>
-          <img className="image-profile" src={profile?.picture === null ? {profDef} : profile?.picture} alt="head-profile"/>
-        </div>
+    <>
+    <div onClick={handleShow}>
+      <img className="image-profile" src={profile?.picture === null ? {profDef} : profile?.picture} alt="head-profile"/>
+    </div>
+
+    <Modal show={show} onHide={handleClose} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+      <Modal.Header className="d-flex justify-content-center align-items-center border-0" closeButton>
+        <Modal.Title className="text-center justify-content-start fw-bold">Topup</Modal.Title>
+      </Modal.Header>
+
+      <Modal.Body className="d-flex flex-column gap-5">
+        <span>Enter the amount of money, and click <br/> submit</span>
+      </Modal.Body>
+    </Modal>
+    </>
   )      
 }
 
