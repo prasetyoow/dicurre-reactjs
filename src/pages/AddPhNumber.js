@@ -23,15 +23,15 @@ function AddPhNumber() {
     dispatch(resetMsg);
     const request = {token: token, phone_number: phone};
     console.log(qs.stringify(request) + ' dari page');
-    dispatch(editPhoneNumber(request));
-    if (successMsg) {
-      navigate('/Profile');
-    }
+    // dispatch(editPhoneNumber(request));
+    // if (successMsg) {
+    //   navigate('/Profile');
+    // }
   };
 
-  React.useEffect(() => {
-    dispatch(resetMsg);
-  }, [dispatch, successMsg, navigate]);
+  // React.useEffect(() => {
+  //   dispatch(resetMsg);
+  // }, [dispatch, successMsg, navigate]);
   return (
     <>
     <Helmet>
