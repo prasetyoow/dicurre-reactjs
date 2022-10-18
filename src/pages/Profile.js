@@ -8,7 +8,6 @@ import Footer from "../components/Footer"
 import { Helmet } from "react-helmet"
 import Bottombars from "../components/Bottombars"
 import profDef from "../assets/img/defaultProfile.png"
-import EditPicture from "../components/ModalEditImage"
 
 // redux
 import { getUserLogin } from "../redux/asyncActions/profile"
