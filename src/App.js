@@ -23,6 +23,7 @@ import Confirmation from "./pages/Confirmation"
 import StatusSuccess from "./pages/StatusSuccess";
 import StatusFailed from "./pages/StatusFailed";
 import PrivateRoute from "./components/PrivateRoute";
+import EditFullName from "./pages/EditName";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
         <Route path="/Profile" element={<Profile />} />
         <Route path="/PersonalInfo" element={<PersonalInfo />} />
         <Route path="/AddPhNumber" element={<AddPhNumber />} />
+        <Route path="/EditName" element={<EditFullName />} />
         <Route path="/ManagePhNumber" element={<ManagePhNumber />} />
         <Route path="/ChangePassword" element={<ChangePassword />} />
         <Route path="/ChangePIN" element={<ChangePIN />} />
